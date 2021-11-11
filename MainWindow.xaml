@@ -211,7 +211,7 @@
             <Grid   x:Name="nav_pnl"
                     HorizontalAlignment="Left"
                     Width="65"
-                    Background="#2E333A">
+                    Background="#412010">
 
                 <StackPanel x:Name="st_pnl">
 
@@ -337,7 +337,7 @@
                             <StackPanel Orientation="Horizontal"
                                         Width="230">
 
-                                <Image Source="Assets/img_home.png"
+                                <Image Source="Assets/img_alphabet.png"
                                        Stretch="None"
                                        Margin="12,0,0,0"/>
 
@@ -368,7 +368,7 @@
                             <StackPanel Orientation="Horizontal"
                                         Width="230">
 
-                                <Image Source="Assets/img_contact.png"
+                                <Image Source="Assets/img_dictionary.png"
                                        Stretch="None"
                                        Margin="12,0,0,0"/>
 
@@ -399,7 +399,7 @@
                             <StackPanel Orientation="Horizontal"
                                         Width="230">
 
-                                <Image Source="Assets/img_message.png"
+                                <Image Source="Assets/img_pharaoh.png"
                                        Stretch="None"
                                        Margin="12,0,0,0"/>
 
@@ -430,7 +430,7 @@
                             <StackPanel Orientation="Horizontal"
                                         Width="230">
 
-                                <Image Source="Assets/img_map.png"
+                                <Image Source="Assets/img_god.png"
                                        Stretch="None"
                                        Margin="12,0,0,0"/>
 
@@ -493,9 +493,6 @@
                                                             TargetName="Bd"
                                                             Value="#404D5B"/>
 
-                                                    <Setter Property="BorderBrush"
-                                                            TargetName="Bd"
-                                                            Value="#404D5B"/>
 
                                                 </MultiTrigger>
 

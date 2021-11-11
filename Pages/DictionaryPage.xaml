@@ -7,8 +7,18 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="DictionaryPage">
-
+    <Page.Background>
+        <ImageBrush>
+            <ImageBrush.ImageSource>
+                <BitmapImage UriSource="../Assets/img_background.png"/>
+            </ImageBrush.ImageSource>
+        </ImageBrush>
+    </Page.Background>
     <Grid>
-        <Button Content="Словарь иероглифов"></Button>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+
+        </Grid.ColumnDefinitions>
     </Grid>
 </Page>
