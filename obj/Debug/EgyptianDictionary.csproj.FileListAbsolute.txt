@@ -68,3 +68,9 @@ C:\Users\anya7\Documents\GitHub\Ancient-Egyptian-Hieroglyphic-Dictionary-WPF\obj
 C:\Users\anya7\Documents\GitHub\Ancient-Egyptian-Hieroglyphic-Dictionary-WPF\obj\Debug\EgyptianDictionary.exe
 C:\Users\anya7\Documents\GitHub\Ancient-Egyptian-Hieroglyphic-Dictionary-WPF\obj\Debug\EgyptianDictionary.pdb
 C:\Users\anya7\Documents\GitHub\Ancient-Egyptian-Hieroglyphic-Dictionary-WPF\obj\Debug\EgyptianDictionary_Content.g.cs
+C:\Users\floralunit\Documents\GitHub\EgyptianDictionary\obj\Debug\EgyptianDictionary_Content.g.cs
+C:\Users\floralunit\Documents\GitHub\EgyptianDictionary\bin\Debug\MaterialDesignColors.dll
+C:\Users\floralunit\Documents\GitHub\EgyptianDictionary\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\floralunit\Documents\GitHub\EgyptianDictionary\bin\Debug\MaterialDesignColors.pdb
+C:\Users\floralunit\Documents\GitHub\EgyptianDictionary\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\floralunit\Documents\GitHub\EgyptianDictionary\bin\Debug\MaterialDesignThemes.Wpf.xml

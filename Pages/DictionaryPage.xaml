@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:EgyptianDictionary.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="600" d:DesignWidth="860"
       Title="DictionaryPage">
     <Page.Background>
         <ImageBrush>
@@ -16,9 +16,49 @@
     </Page.Background>
     <Grid>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-
         </Grid.ColumnDefinitions>
+        <StackPanel Background="WhiteSmoke" Grid.Column="1">
+        <Grid Height="40">
+                <StackPanel HorizontalAlignment="Left" Margin="20 0">
+                    <ComboBox FontSize="15" Width="50" Foreground="#FFA2A2A2" SelectedIndex="0" VerticalAlignment="Center">
+                        <ComboBoxItem Content="EN"/>
+                    </ComboBox>
+                </StackPanel>
+            </Grid>
+        <Grid Height="100">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="10 0">
+                    <Button Uid="0" Content="A" Height="50" Width="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="black" Click="Button_Click"/>
+                    <Button Uid="1" Content="B" Height="50" Width="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="black" Click="Button_Click"/>
+                    <Button Uid="2" Content="C" Height="50" Width="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="black" Click="Button_Click"/>
+                    <Button Uid="3" Content="D" Height="50" Width="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="black" Click="Button_Click"/>
+                    <Button Uid="4" Content="E" Height="50" Width="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="black" Click="Button_Click"/>
+                    <Button Uid="5" Content="F" Height="50" Width="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="black" Click="Button_Click"/>
+                    <Button Uid="6" Content="G" Height="50" Width="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="black" Click="Button_Click"/>
+                    <Button Uid="7" Content="H" Height="50" Width="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="black" Click="Button_Click"/>
+                    <Button Uid="8" Content="I" Height="50" Width="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="black" Click="Button_Click"/>
+                    <Button Uid="9" Content="K" Height="50" Width="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="black" Click="Button_Click"/>
+                    <Button Uid="10" Content="L" Height="50" Width="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="black" Click="Button_Click"/>
+                    <Button Uid="11" Content="M" Height="50" Width="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="black" Click="Button_Click"/>
+                    <Button Uid="12" Content="N" Height="50" Width="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="black" Click="Button_Click"/>
+                    <Button Uid="13" Content="O" Height="50" Width="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="black" Click="Button_Click"/>
+                    <Button Uid="14" Content="P" Height="50" Width="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="black" Click="Button_Click"/>
+                    <Button Uid="15" Content="Q" Height="50" Width="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="black" Click="Button_Click"/>
+                    <Button Uid="16" Content="R" Height="50" Width="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="black" Click="Button_Click"/>
+                    <Button Uid="17" Content="S" Height="50" Width="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="black" Click="Button_Click"/>
+                    <Button Uid="18" Content="T" Height="50" Width="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="black" Click="Button_Click"/>
+                    <Button Uid="19" Content="U" Height="50" Width="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="black" Click="Button_Click"/>
+                    <Button Uid="20" Content="V" Height="50" Width="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="black" Click="Button_Click"/>
+                    <Button Uid="21" Content="W" Height="50" Width="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="black" Click="Button_Click"/>
+                    <Button Uid="22" Content="X" Height="50" Width="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="black" Click="Button_Click"/>
+                    <Button Uid="23" Content="Y" Height="50" Width="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="black" Click="Button_Click"/>
+                    <Button Uid="24" Content="Z" Height="50" Width="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="black" Click="Button_Click"/>
+                </StackPanel>
+                <Grid x:Name="GridCursor" Width="30" Height="5" Background="#FF2196F3" HorizontalAlignment="Left" Margin="10 0"/>
+        </Grid>
+            <ListView x:Name="GridMain" Height="460" Background="Aquamarine">
+            </ListView>
+        </StackPanel>
     </Grid>
 </Page>

@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" 
         Height="600" 
-        Width="800"
+        Width="860"
         ResizeMode="NoResize"
         Topmost="True"
         WindowStyle="None"
@@ -210,8 +210,8 @@
 
             <Grid   x:Name="nav_pnl"
                     HorizontalAlignment="Left"
-                    Width="65"
-                    Background="#412010">
+                    Width="80"
+                    Background="#2c2c2e">
 
                 <StackPanel x:Name="st_pnl">
 
