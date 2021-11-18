@@ -5,11 +5,56 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:EgyptianDictionary.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="800" d:DesignWidth="955"
       Title="AlphabetPage">
-
     <Grid>
-        <Button Content="Алфавит"></Button>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="1">
+            <StackPanel Background="WhiteSmoke" Grid.Column="1">
+                <Grid Height="40">
+                    <StackPanel HorizontalAlignment="Left" Margin="20 0">
+                        <ComboBox FontSize="15" Width="50" Foreground="#FFA2A2A2" SelectedIndex="0" VerticalAlignment="Center">
+                            <ComboBoxItem Content="EN"/>
+                        </ComboBox>
+                    </StackPanel>
+                </Grid>
+                <Grid Height="100">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="10 0">
+                        <Button Uid="0" Content="Алфавит" Height="50" Width="298" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="black" Click="Button_Click"/>
+                        <Button Uid="1" Content="Двусогласные знаки" Height="50" Width="298" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="black" Click="Button_Click"/>
+                        <Button Uid="2" Content="Трехсогласные знаки" Height="50" Width="298" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="black" Click="Button_Click"/>
+                    </StackPanel>
+                    <Grid x:Name="GridCursor" Width="298" Height="5" Background="#FF2196F3" HorizontalAlignment="Left" Margin="10 0"/>
+                </Grid>
+            </StackPanel>
+            <ListView Name="LViewPhonogram" ScrollViewer.VerticalScrollBarVisibility="Visible" Height="660">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" 
+                                    FontFamily="Segoe UI Historic" FontSize="50"
+                                       Text="{Binding glyph}" HorizontalAlignment="Left"></TextBlock>
+                            <TextBlock Grid.Column="1" 
+                                           Text="{Binding gardiner_code}"></TextBlock>
+                            <TextBlock Grid.Column="2" 
+                                           Text="{Binding transliteration}"></TextBlock>
+                            <TextBlock Grid.Column="3" 
+                                           Text="{Binding manual_cotage}"></TextBlock>
+
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
 
     </Grid>
 </Page>

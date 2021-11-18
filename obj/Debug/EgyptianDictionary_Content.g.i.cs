@@ -8,6 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("entities/egyptianmodel.context.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("entities/egyptianmodel.tt")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/img_background.png")]
 
 

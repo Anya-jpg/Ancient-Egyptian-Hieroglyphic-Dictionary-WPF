@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EgyptianDictionary.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,11 @@ namespace EgyptianDictionary.Pages
     /// </summary>
     public partial class DictionaryPage : Page
     {
+        List<Dictionary_ru> dictionary_ru = App.Context.Dictionary_ru.ToList();
         public DictionaryPage()
         {
             InitializeComponent();
+            LViewDictionary.ItemsSource = dictionary_ru.Where(p => p.categoria == "A").ToList();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -34,27 +37,91 @@ namespace EgyptianDictionary.Pages
             switch (index)
             {
                 case 0:
-                    GridMain.Background = Brushes.Aquamarine;
+                    LViewDictionary.ItemsSource = dictionary_ru.Where(p => p.categoria == "A").ToList();
                     break;
                 case 1:
-                    GridMain.Background = Brushes.Beige;
+                    LViewDictionary.ItemsSource = dictionary_ru.Where(p => p.categoria == "B").ToList();
                     break;
                 case 2:
-                    GridMain.Background = Brushes.CadetBlue;
+                    LViewDictionary.ItemsSource = dictionary_ru.Where(p => p.categoria == "C").ToList();
                     break;
                 case 3:
-                    GridMain.Background = Brushes.DarkBlue;
+                    LViewDictionary.ItemsSource = dictionary_ru.Where(p => p.categoria == "D").ToList();
                     break;
                 case 4:
-                    GridMain.Background = Brushes.Firebrick;
+                    LViewDictionary.ItemsSource = dictionary_ru.Where(p => p.categoria == "E").ToList();
                     break;
                 case 5:
-                    GridMain.Background = Brushes.Gainsboro;
+                    LViewDictionary.ItemsSource = dictionary_ru.Where(p => p.categoria == "F").ToList();
                     break;
                 case 6:
-                    GridMain.Background = Brushes.HotPink;
+                    LViewDictionary.ItemsSource = dictionary_ru.Where(p => p.categoria == "G").ToList();
+                    break;
+                case 7:
+                    LViewDictionary.ItemsSource = dictionary_ru.Where(p => p.categoria == "H").ToList();
+                    break;
+                case 8:
+                    LViewDictionary.ItemsSource = dictionary_ru.Where(p => p.categoria == "I").ToList();
+                    break;
+                case 9:
+                    LViewDictionary.ItemsSource = dictionary_ru.Where(p => p.categoria == "K").ToList();
+                    break;
+                case 10:
+                    LViewDictionary.ItemsSource = dictionary_ru.Where(p => p.categoria == "L").ToList();
+                    break;
+                case 11:
+                    LViewDictionary.ItemsSource = dictionary_ru.Where(p => p.categoria == "M").ToList();
+                    break;
+                case 12:
+                    LViewDictionary.ItemsSource = dictionary_ru.Where(p => p.categoria == "N").ToList();
+                    break;
+                case 13:
+                    LViewDictionary.ItemsSource = dictionary_ru.Where(p => p.categoria == "NU").ToList();
+                    break;
+                case 14:
+                    LViewDictionary.ItemsSource = dictionary_ru.Where(p => p.categoria == "NL").ToList();
+                    break;
+                case 15:
+                    LViewDictionary.ItemsSource = dictionary_ru.Where(p => p.categoria == "O").ToList();
+                    break;
+                case 16:
+                    LViewDictionary.ItemsSource = dictionary_ru.Where(p => p.categoria == "P").ToList();
+                    break;
+                case 17:
+                    LViewDictionary.ItemsSource = dictionary_ru.Where(p => p.categoria == "Q").ToList();
+                    break;
+                case 18:
+                    LViewDictionary.ItemsSource = dictionary_ru.Where(p => p.categoria == "R").ToList();
+                    break;
+                case 19:
+                    LViewDictionary.ItemsSource = dictionary_ru.Where(p => p.categoria == "S").ToList();
+                    break;
+                case 20:
+                    LViewDictionary.ItemsSource = dictionary_ru.Where(p => p.categoria == "T").ToList();
+                    break;
+                case 21:
+                    LViewDictionary.ItemsSource = dictionary_ru.Where(p => p.categoria == "U").ToList();
+                    break;
+                case 22:
+                    LViewDictionary.ItemsSource = dictionary_ru.Where(p => p.categoria == "V").ToList();
+                    break;
+                case 23:
+                    LViewDictionary.ItemsSource = dictionary_ru.Where(p => p.categoria == "W").ToList();
+                    break;
+                case 24:
+                    LViewDictionary.ItemsSource = dictionary_ru.Where(p => p.categoria == "X").ToList();
+                    break;
+                case 25:
+                    LViewDictionary.ItemsSource = dictionary_ru.Where(p => p.categoria == "Y").ToList();
+                    break;
+                case 26:
+                    LViewDictionary.ItemsSource = dictionary_ru.Where(p => p.categoria == "Z").ToList();
+                    break;
+                case 27:
+                    LViewDictionary.ItemsSource = dictionary_ru.Where(p => p.categoria == "Aa").ToList();
                     break;
             }
+            
         }
     }
 }

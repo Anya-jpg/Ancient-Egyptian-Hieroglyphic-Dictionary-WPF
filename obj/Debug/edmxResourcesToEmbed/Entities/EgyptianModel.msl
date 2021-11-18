@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище EgyptianDBModelContainer" CdmEntityContainer="EgyptianDBEntities">
+    <EntitySetMapping Name="Categoria_ru">
+      <EntityTypeMapping TypeName="EgyptianDBModel.Categoria_ru">
+        <MappingFragment StoreEntitySet="Categoria_ru">
+          <ScalarProperty Name="categoria" ColumnName="categoria" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Client">
+      <EntityTypeMapping TypeName="EgyptianDBModel.Client">
+        <MappingFragment StoreEntitySet="Client">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gender">
+      <EntityTypeMapping TypeName="EgyptianDBModel.Gender">
+        <MappingFragment StoreEntitySet="Gender">
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="avatar" ColumnName="avatar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="EgyptianDBModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="EgyptianDBModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Task">
+      <EntityTypeMapping TypeName="EgyptianDBModel.Task">
+        <MappingFragment StoreEntitySet="Task">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="clientId" ColumnName="clientId" />
+          <ScalarProperty Name="translatorId" ColumnName="translatorId" />
+          <ScalarProperty Name="originalText" ColumnName="originalText" />
+          <ScalarProperty Name="task1" ColumnName="task" />
+          <ScalarProperty Name="result" ColumnName="result" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Translator">
+      <EntityTypeMapping TypeName="EgyptianDBModel.Translator">
+        <MappingFragment StoreEntitySet="Translator">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="education" ColumnName="education" />
+          <ScalarProperty Name="experience" ColumnName="experience" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="EgyptianDBModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="roleId" ColumnName="roleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Alphabet">
+      <EntityTypeMapping TypeName="EgyptianDBModel.Alphabet">
+        <MappingFragment StoreEntitySet="Alphabet">
+          <ScalarProperty Name="glyph" ColumnName="glyph" />
+          <ScalarProperty Name="gardiner_code_1" ColumnName="gardiner_code_1" />
+          <ScalarProperty Name="transliteration" ColumnName="transliteration" />
+          <ScalarProperty Name="manual_cotage" ColumnName="manual_cotage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Biliteral">
+      <EntityTypeMapping TypeName="EgyptianDBModel.Biliteral">
+        <MappingFragment StoreEntitySet="Biliteral">
+          <ScalarProperty Name="glyph" ColumnName="glyph" />
+          <ScalarProperty Name="gardiner_code" ColumnName="gardiner_code" />
+          <ScalarProperty Name="transliteration" ColumnName="transliteration" />
+          <ScalarProperty Name="manual_cotage" ColumnName="manual_cotage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dictionary_ru">
+      <EntityTypeMapping TypeName="EgyptianDBModel.Dictionary_ru">
+        <MappingFragment StoreEntitySet="Dictionary_ru">
+          <ScalarProperty Name="glyph" ColumnName="glyph" />
+          <ScalarProperty Name="unicode" ColumnName="unicode" />
+          <ScalarProperty Name="categoria" ColumnName="categoria" />
+          <ScalarProperty Name="gardiner_code" ColumnName="gardiner_code" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="phonogram" ColumnName="phonogram" />
+          <ScalarProperty Name="transliteration" ColumnName="transliteration" />
+          <ScalarProperty Name="notes" ColumnName="notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Triliteral">
+      <EntityTypeMapping TypeName="EgyptianDBModel.Triliteral">
+        <MappingFragment StoreEntitySet="Triliteral">
+          <ScalarProperty Name="glyph" ColumnName="glyph" />
+          <ScalarProperty Name="gardiner_code" ColumnName="gardiner_code" />
+          <ScalarProperty Name="transliteration" ColumnName="transliteration" />
+          <ScalarProperty Name="manual_cotage" ColumnName="manual_cotage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище EgyptianDBModel.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище EgyptianDBModel.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище EgyptianDBModel.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Хранилище EgyptianDBModel.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EgyptianDBModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Хранилище EgyptianDBModel.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EgyptianDBModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище EgyptianDBModel.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище EgyptianDBModel.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>

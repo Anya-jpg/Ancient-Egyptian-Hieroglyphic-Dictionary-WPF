@@ -1,0 +1,64 @@
+﻿<Window x:Class="EgyptianDictionary.RegistrationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EgyptianDictionary"
+        mc:Ignorable="d"
+        Title="Регистрация" Height="400" Width="400" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Логин" Margin="10"
+                   Grid.Column="0" Grid.Row="0"/>
+        <TextBlock Text="Пароль" Margin="10"
+                   Grid.Column="0" Grid.Row="1"/>
+        <TextBlock Text="Тип аккаунта" Margin="10"
+                   Grid.Column="0" Grid.Row="2"/>
+        <TextBlock Text="Имя" Margin="10"
+                   Grid.Column="0" Grid.Row="3"/>
+        <TextBlock Text="Пол" Margin="10"
+                   Grid.Column="0" Grid.Row="4"/>
+        <TextBlock Text="Образование" Margin="10"
+                   Grid.Column="0" Grid.Row="5"/>
+        <TextBlock Text="Опыт перевода" Margin="10"
+                   Grid.Column="0" Grid.Row="6"/>
+        <PasswordBox x:Name="TBPassword" Margin="10"
+                     Grid.Column="1" Grid.Row="1"/>
+        <TextBox x:Name="TBLogin" Margin="10"
+                 Grid.Column="1" Grid.Row="0"/>
+        <ComboBox x:Name="CBRole" Margin="10"
+                  Grid.Column="1" Grid.Row="2" SelectionChanged="CBRole_SelectionChanged">
+            <ComboBoxItem x:Name="CBUser" Content="Заказчик"></ComboBoxItem>
+            <ComboBoxItem x:Name="CBTranslator" Content="Переводчик"></ComboBoxItem>
+        </ComboBox>
+        <TextBox x:Name="TBName" Margin="10" 
+                 Grid.Column="1" Grid.Row="3"/>
+        <ComboBox x:Name="CBGender" Margin="10" 
+                  Grid.Column="1" Grid.Row="4">
+            <ComboBoxItem x:Name="CBMale" Content="Мужской"></ComboBoxItem>
+            <ComboBoxItem x:Name="CBFemale" Content="Женский"></ComboBoxItem>
+        </ComboBox>
+        <TextBox x:Name="TBEducation" Margin="10" IsEnabled="False"
+                 Grid.Column="1" Grid.Row="5"/>
+        <TextBox x:Name="TBExperience" Margin="10" IsEnabled="False"
+                 Grid.Column="1" Grid.Row="6"/>
+        <Button Grid.Column="0" Grid.Row="7" Margin="10"
+                Content="Зарегистрироваться" Click="BRegistration_Click"/>
+        <Button Grid.Column="1" Grid.Row="8" Margin="10"
+                Content="Отмена" Click="BCancel_Click"/>
+
+    </Grid>
+</Window>
