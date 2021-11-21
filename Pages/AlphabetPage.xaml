@@ -9,11 +9,11 @@
       Title="AlphabetPage">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="80"></ColumnDefinition>
+            <ColumnDefinition Width="65"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="1">
-            <StackPanel Background="WhiteSmoke" Grid.Column="1">
+            <StackPanel Grid.Column="1">
                 <Grid Height="40">
                     <StackPanel HorizontalAlignment="Left" Margin="20 0">
                         <ComboBox FontSize="15" Width="50" Foreground="#FFA2A2A2" SelectedIndex="0" VerticalAlignment="Center">

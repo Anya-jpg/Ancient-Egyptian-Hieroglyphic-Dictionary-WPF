@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\anya7\Documents\GitHub\Ancient-Egyptian-Hieroglyphic-Dictionary-WPF\App.xaml
-7-1556518928
+101019834558
 31485699394
-28-1205603057
-20-342760040
-LoginWindow.xaml;MainWindow.xaml;Pages\AlphabetPage.xaml;Pages\DictionaryPage.xaml;Pages\GodsPage.xaml;Pages\PharaonPage.xaml;RegistrationWindow.xaml;
+321496178574
+21-128373304
+LoginWindow.xaml;MainWindow.xaml;Pages\AlphabetPage.xaml;Pages\DictionaryPage.xaml;Pages\GodsPage.xaml;Pages\PharaonPage.xaml;Pages\ProfileClientPage.xaml;Pages\ProfileTranslatorPage.xaml;RegistrationWindow.xaml;TranslationWindow.xaml;
 
 False
 

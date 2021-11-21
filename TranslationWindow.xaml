@@ -1,0 +1,38 @@
+﻿<Window x:Class="EgyptianDictionary.TranslationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EgyptianDictionary"
+        mc:Ignorable="d"
+        Title="TranslationWindow" Height="450" Width="450" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Name="LClient"
+               Grid.Row="0"></Label>
+        <Label HorizontalAlignment="Center" FontWeight="Bold"
+            Grid.Row="1">Текст для перевода: </Label>
+        <TextBlock Name="TBOriginal" TextWrapping="Wrap"
+            Grid.Row="2"></TextBlock>
+        <Label HorizontalAlignment="Center" FontWeight="Bold"
+            Grid.Row="3">Задание:</Label>
+        <TextBlock Name="TBTask" TextWrapping="Wrap"
+            Grid.Row="4"></TextBlock>
+        <Label HorizontalAlignment="Center" FontWeight="Bold"
+            Grid.Row="5">Перевод:</Label>
+        <TextBox Name="TBResult" TextWrapping="Wrap" AcceptsReturn="True"
+           Grid.Row="6" Grid.RowSpan="1"></TextBox>
+        <Button Name="BSend"
+                Grid.Row="8" Click="BSend_Click">Отправить перевод</Button>
+    </Grid>
+</Window>

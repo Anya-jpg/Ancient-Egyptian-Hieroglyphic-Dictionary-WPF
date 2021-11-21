@@ -17,6 +17,7 @@
           <ScalarProperty Name="login" ColumnName="login" />
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="avatar" ColumnName="avatar" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -25,7 +26,6 @@
         <MappingFragment StoreEntitySet="Gender">
           <ScalarProperty Name="code" ColumnName="code" />
           <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="avatar" ColumnName="avatar" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -48,14 +48,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Task">
-      <EntityTypeMapping TypeName="EgyptianDBModel.Task">
-        <MappingFragment StoreEntitySet="Task">
+    <EntitySetMapping Name="Translation">
+      <EntityTypeMapping TypeName="EgyptianDBModel.Translation">
+        <MappingFragment StoreEntitySet="Translation">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="clientId" ColumnName="clientId" />
           <ScalarProperty Name="translatorId" ColumnName="translatorId" />
           <ScalarProperty Name="originalText" ColumnName="originalText" />
-          <ScalarProperty Name="task1" ColumnName="task" />
+          <ScalarProperty Name="task" ColumnName="task" />
           <ScalarProperty Name="result" ColumnName="result" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -69,6 +69,7 @@
           <ScalarProperty Name="gender" ColumnName="gender" />
           <ScalarProperty Name="education" ColumnName="education" />
           <ScalarProperty Name="experience" ColumnName="experience" />
+          <ScalarProperty Name="avatar" ColumnName="avatar" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -112,6 +113,19 @@
           <ScalarProperty Name="phonogram" ColumnName="phonogram" />
           <ScalarProperty Name="transliteration" ColumnName="transliteration" />
           <ScalarProperty Name="notes" ColumnName="notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="God_ru">
+      <EntityTypeMapping TypeName="EgyptianDBModel.God_ru">
+        <MappingFragment StoreEntitySet="God_ru">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="gardiner_code" ColumnName="gardiner_code" />
+          <ScalarProperty Name="hieroglyphic" ColumnName="hieroglyphic" />
+          <ScalarProperty Name="transliteration" ColumnName="transliteration" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="view" ColumnName="view" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

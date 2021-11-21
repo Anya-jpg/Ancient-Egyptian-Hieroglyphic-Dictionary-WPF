@@ -32,12 +32,13 @@ namespace EgyptianDictionary.Entities
         public virtual DbSet<Gender> Gender { get; set; }
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<Task> Task { get; set; }
+        public virtual DbSet<Translation> Translation { get; set; }
         public virtual DbSet<Translator> Translator { get; set; }
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<Alphabet> Alphabet { get; set; }
         public virtual DbSet<Biliteral> Biliteral { get; set; }
         public virtual DbSet<Dictionary_ru> Dictionary_ru { get; set; }
+        public virtual DbSet<God_ru> God_ru { get; set; }
         public virtual DbSet<Triliteral> Triliteral { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)

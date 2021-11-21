@@ -23,7 +23,6 @@ namespace EgyptianDictionary.Entities
     
         public string code { get; set; }
         public string name { get; set; }
-        public string avatar { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Client> Client { get; set; }

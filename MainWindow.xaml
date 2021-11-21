@@ -9,160 +9,14 @@
         Height="800" 
         Width="955"
         ResizeMode="NoResize"
-        Topmost="True"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen">
-
-    <Window.Resources>
-
-        <!--// Toggle Button Style Template //-->
-
-        <ImageBrush x:Key="tb_mouse_over"
-                    ImageSource="Assets/tgBtn_MouseOver.png"/>
-
-        <!--// Text font style //-->
-
-        <Style x:Key="font_style" TargetType="TextBlock">
-
-            <Setter Property="FontFamily"
-                    Value="Fonts/Roboto-Light.ttf #Roboto"/>
-
-            <Setter Property="VerticalAlignment"
-                    Value="Center"/>
-
-            <Setter Property="HorizontalAlignment"
-                    Value="Left"/>
-
-            <Setter Property="Foreground"
-                    Value="White"/>
-
-            <Setter Property="FontSize"
-                    Value="20"/>
-
-        </Style>
-
-        <!--// Tooltip Style Template //-->
-
-        <Style TargetType="ToolTip" x:Key="tt_style">
-
-            <Setter Property="Placement" Value="Right"/>
-            <Setter Property="Height" Value="40"/>
-            <Setter Property="Width" Value="100"/>
-            <Setter Property="Margin" Value="20,0,0,0"/>
-            <Setter Property="Background" Value="#4A5668"/>
-            <Setter Property="BorderBrush" Value="Transparent"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="FontFamily" Value="Fonts/Roboto-Light.ttf #Roboto"/>
-            <Setter Property="FontSize" Value="16"/>
-            <Setter Property="PlacementRectangle" Value="60,0,0,0"/>
-            <Setter Property="HorizontalOffset" Value="15"/>
-            <Setter Property="VerticalOffset" Value="6"/>
-            <Setter Property="HasDropShadow" Value="True"/>
-            <Setter Property="HorizontalContentAlignment" Value="Center"/>
-
-        </Style>
-
-        <!--// App Close Button Style Template //-->
-
-        <ImageBrush x:Key="CloseBtn_MouseOver" ImageSource="Assets/closeBtn_MouseOver.png"/>
-
-        <Style x:Key="Close_btn" TargetType="{x:Type Button}">
-
-            <Setter Property="Template">
-
-                <Setter.Value>
-
-                    <ControlTemplate TargetType="{x:Type Button}">
-
-                        <Border x:Name="button"
-                                BorderThickness="0"
-                                Background="{TemplateBinding Background}"
-                                SnapsToDevicePixels="True">
-
-                        </Border>
-
-                        <ControlTemplate.Triggers>
-
-                            <Trigger Property="IsMouseOver"
-                                     Value="True">
-
-                                <Setter Property="Background"
-                                        TargetName="button"
-                                        Value="{StaticResource CloseBtn_MouseOver}"/>
-
-                            </Trigger>
-
-                        </ControlTemplate.Triggers>
-
-                    </ControlTemplate>
-
-                </Setter.Value>
-
-            </Setter>
-
-        </Style>
-
-
-
-
-        <Style x:Key="tb_style" TargetType="{x:Type ToggleButton}">
-
-            <Setter Property="Template">
-
-                <Setter.Value>
-
-                    <ControlTemplate TargetType="{x:Type ToggleButton}">
-
-                        <Border  x:Name="border"
-                                 BorderThickness="{TemplateBinding BorderThickness}"
-                                 Background="{TemplateBinding Background}"
-                                 SnapsToDevicePixels="True">
-
-                        </Border>
-
-                        <ControlTemplate.Triggers>
-
-                            <Trigger Property="IsMouseOver" Value="true">
-
-                                <Setter Property="Background"
-                                        TargetName="border"
-                                        Value="{StaticResource tb_mouse_over}"/>
-
-                                <Setter Property="BorderBrush"
-                                        TargetName="border"
-                                        Value="{StaticResource tb_mouse_over}"/>
-
-                            </Trigger>
-
-                            <Trigger Property="IsChecked" Value="true">
-
-                                <Setter Property="Background"
-                                        TargetName="border"
-                                        Value="{StaticResource tb_mouse_over}"/>
-
-                                <Setter Property="BorderBrush"
-                                        TargetName="border"
-                                        Value="{StaticResource tb_mouse_over}"/>
-
-                            </Trigger>
-
-                        </ControlTemplate.Triggers>
-
-                    </ControlTemplate>
-
-                </Setter.Value>
-
-            </Setter>
-
-        </Style>
-
-    </Window.Resources>
 
     <Grid>
 
         <!--// Background Color //-->
 
-        <Grid Background="Black">
+        <Grid Background="#fff2b2">
 
             <!--// Background Image //-->
 
@@ -210,8 +64,9 @@
 
             <Grid   x:Name="nav_pnl"
                     HorizontalAlignment="Left"
-                    Width="80"
-                    Background="#2c2c2e">
+                    Width="65"
+                    
+                    Background="#ffee99">
 
                 <StackPanel x:Name="st_pnl">
 
@@ -446,6 +301,63 @@
 
                                 <ToolTip x:Name="tt_gods"
                                          Content="Древнеегипетские Боги"
+                                         Style="{StaticResource tt_style}"/>
+
+                            </ListViewItem.ToolTip>
+
+                        </ListViewItem>
+
+                        <ListViewItem Name="LV_Profile" HorizontalAlignment="Left" 
+                                      Margin="0,320,0,15" MouseEnter="ListViewItem_MouseEnter" PreviewMouseLeftButtonDown="LV_Profile_PreviewMouseLeftButtonDown"
+                                      >
+
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230">
+
+                                <Image Source="Assets/img_god.png"
+                                       Stretch="None"
+                                       Margin="12,0,0,0"/>
+
+                                <TextBlock Text="Древнеегипетские Боги"
+                                           Margin="25,0,0,0"
+                                           Style="{StaticResource font_style}"/>
+
+                            </StackPanel>
+
+                            <!--// Tooltip //-->
+
+                            <ListViewItem.ToolTip>
+
+                                <ToolTip x:Name="tt_profile"
+                                         Content="Профиль и переводы"
+                                         Style="{StaticResource tt_style}"/>
+
+                            </ListViewItem.ToolTip>
+
+                        </ListViewItem>
+                        <ListViewItem Name="LV_Exit" HorizontalAlignment="Left" 
+                                      Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter" PreviewMouseLeftButtonDown="LV_Exit_PreviewMouseLeftButtonDown"
+                                      >
+
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230">
+
+                                <Image Source="Assets/img_god.png"
+                                       Stretch="None"
+                                       Margin="12,0,0,0"/>
+
+                                <TextBlock Text="Выйти"
+                                           Margin="25,0,0,0"
+                                           Style="{StaticResource font_style}"/>
+
+                            </StackPanel>
+
+                            <!--// Tooltip //-->
+
+                            <ListViewItem.ToolTip>
+
+                                <ToolTip x:Name="tt_exit"
+                                         Content="Выйти из аккаунта"
                                          Style="{StaticResource tt_style}"/>
 
                             </ListViewItem.ToolTip>

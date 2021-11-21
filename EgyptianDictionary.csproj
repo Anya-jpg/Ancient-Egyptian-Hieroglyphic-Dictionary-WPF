@@ -58,6 +58,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -109,6 +110,9 @@
     <Compile Include="Entities\Gender.cs">
       <DependentUpon>EgyptianModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\God_ru.cs">
+      <DependentUpon>EgyptianModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Role.cs">
       <DependentUpon>EgyptianModel.tt</DependentUpon>
     </Compile>
@@ -121,7 +125,7 @@
     <Compile Include="Entities\sysdiagrams.cs">
       <DependentUpon>EgyptianModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Task.cs">
+    <Compile Include="Entities\Translation.cs">
       <DependentUpon>EgyptianModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Translator.cs">
@@ -133,8 +137,17 @@
     <Compile Include="Entities\User.cs">
       <DependentUpon>EgyptianModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ProfileClientPage.xaml.cs">
+      <DependentUpon>ProfileClientPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProfileTranslatorPage.xaml.cs">
+      <DependentUpon>ProfileTranslatorPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RegistrationWindow.xaml.cs">
       <DependentUpon>RegistrationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TranslationWindow.xaml.cs">
+      <DependentUpon>TranslationWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="LoginWindow.xaml">
       <SubType>Designer</SubType>
@@ -171,7 +184,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Pages\ProfileClientPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ProfileTranslatorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="RegistrationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TranslationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

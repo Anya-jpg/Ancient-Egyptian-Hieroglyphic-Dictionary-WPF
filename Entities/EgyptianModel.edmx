@@ -45,6 +45,7 @@
           <Property Name="login" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="gender" Type="nchar" MaxLength="1" />
+          <Property Name="avatar" Type="nvarchar" MaxLength="2" />
         </EntityType>
         <!--Ошибки, обнаруженные при создании:
 предупреждение 6002: В таблице или представлении "EgyptianDB.dbo.Dictionary_ru" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
@@ -68,7 +69,20 @@
           </Key>
           <Property Name="code" Type="nchar" MaxLength="1" Nullable="false" />
           <Property Name="name" Type="nvarchar" MaxLength="25" Nullable="false" />
-          <Property Name="avatar" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "EgyptianDB.dbo.God_ru" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="God_ru">
+          <Key>
+            <PropertyRef Name="name" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="gardiner_code" Type="varchar" MaxLength="50" />
+          <Property Name="hieroglyphic" Type="nvarchar" MaxLength="50" />
+          <Property Name="transliteration" Type="nvarchar" MaxLength="50" />
+          <Property Name="type" Type="nvarchar" MaxLength="255" />
+          <Property Name="description" Type="nvarchar(max)" />
+          <Property Name="view" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -87,7 +101,7 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
-        <EntityType Name="Task">
+        <EntityType Name="Translation">
           <Key>
             <PropertyRef Name="id" />
           </Key>
@@ -108,6 +122,7 @@
           <Property Name="gender" Type="nchar" MaxLength="1" />
           <Property Name="education" Type="nvarchar" MaxLength="255" />
           <Property Name="experience" Type="nvarchar" MaxLength="50" />
+          <Property Name="avatar" Type="nvarchar" MaxLength="2" />
         </EntityType>
         <!--Ошибки, обнаруженные при создании:
 предупреждение 6002: В таблице или представлении "EgyptianDB.dbo.Triliteral" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
@@ -169,24 +184,24 @@
         </Association>
         <Association Name="FK_Task_Client">
           <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
-          <End Role="Task" Type="Self.Task" Multiplicity="*" />
+          <End Role="Translation" Type="Self.Translation" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Client">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Task">
+            <Dependent Role="Translation">
               <PropertyRef Name="clientId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Task_Translator">
           <End Role="Translator" Type="Self.Translator" Multiplicity="0..1" />
-          <End Role="Task" Type="Self.Task" Multiplicity="*" />
+          <End Role="Translation" Type="Self.Translation" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Translator">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Task">
+            <Dependent Role="Translation">
               <PropertyRef Name="translatorId" />
             </Dependent>
           </ReferentialConstraint>
@@ -268,7 +283,7 @@
           <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Task" EntityType="Self.Task" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Translation" EntityType="Self.Translation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Translator" EntityType="Self.Translator" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Alphabet" EntityType="Self.Alphabet" store:Type="Tables" store:Schema="dbo">
@@ -299,6 +314,17 @@
     [Dictionary_ru].[notes] AS [notes]
     FROM [dbo].[Dictionary_ru] AS [Dictionary_ru]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="God_ru" EntityType="Self.God_ru" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [God_ru].[name] AS [name], 
+    [God_ru].[gardiner_code] AS [gardiner_code], 
+    [God_ru].[hieroglyphic] AS [hieroglyphic], 
+    [God_ru].[transliteration] AS [transliteration], 
+    [God_ru].[type] AS [type], 
+    [God_ru].[description] AS [description], 
+    [God_ru].[view] AS [view]
+    FROM [dbo].[God_ru] AS [God_ru]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="Triliteral" EntityType="Self.Triliteral" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [Triliteral].[glyph] AS [glyph], 
@@ -321,11 +347,11 @@
           </AssociationSet>
           <AssociationSet Name="FK_Task_Client" Association="Self.FK_Task_Client">
             <End Role="Client" EntitySet="Client" />
-            <End Role="Task" EntitySet="Task" />
+            <End Role="Translation" EntitySet="Translation" />
           </AssociationSet>
           <AssociationSet Name="FK_Task_Translator" Association="Self.FK_Task_Translator">
             <End Role="Translator" EntitySet="Translator" />
-            <End Role="Task" EntitySet="Task" />
+            <End Role="Translation" EntitySet="Translation" />
           </AssociationSet>
           <AssociationSet Name="FK_Translator_Gender" Association="Self.FK_Translator_Gender">
             <End Role="Gender" EntitySet="Gender" />
@@ -362,9 +388,10 @@
           <Property Name="login" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="gender" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="avatar" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Gender1" Relationship="Self.FK_Client_Gender" FromRole="Client" ToRole="Gender" />
           <NavigationProperty Name="User" Relationship="Self.FK_Client_User" FromRole="Client" ToRole="User" />
-          <NavigationProperty Name="Task" Relationship="Self.FK_Task_Client" FromRole="Client" ToRole="Task" />
+          <NavigationProperty Name="Translation" Relationship="Self.FK_Task_Client" FromRole="Client" ToRole="Translation" />
         </EntityType>
         <EntityType Name="Gender">
           <Key>
@@ -372,7 +399,6 @@
           </Key>
           <Property Name="code" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="name" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="avatar" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Client" Relationship="Self.FK_Client_Gender" FromRole="Gender" ToRole="Client" />
           <NavigationProperty Name="Translator" Relationship="Self.FK_Translator_Gender" FromRole="Gender" ToRole="Translator" />
         </EntityType>
@@ -394,7 +420,7 @@
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
-        <EntityType Name="Task">
+        <EntityType Name="Translation">
           <Key>
             <PropertyRef Name="id" />
           </Key>
@@ -402,10 +428,10 @@
           <Property Name="clientId" Type="Int16" />
           <Property Name="translatorId" Type="Int16" />
           <Property Name="originalText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="task1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="task" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="result" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Client" Relationship="Self.FK_Task_Client" FromRole="Task" ToRole="Client" />
-          <NavigationProperty Name="Translator" Relationship="Self.FK_Task_Translator" FromRole="Task" ToRole="Translator" />
+          <NavigationProperty Name="Client" Relationship="Self.FK_Task_Client" FromRole="Translation" ToRole="Client" />
+          <NavigationProperty Name="Translator" Relationship="Self.FK_Task_Translator" FromRole="Translation" ToRole="Translator" />
         </EntityType>
         <EntityType Name="Translator">
           <Key>
@@ -417,8 +443,9 @@
           <Property Name="gender" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
           <Property Name="education" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="experience" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="avatar" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Gender1" Relationship="Self.FK_Translator_Gender" FromRole="Translator" ToRole="Gender" />
-          <NavigationProperty Name="Task" Relationship="Self.FK_Task_Translator" FromRole="Translator" ToRole="Task" />
+          <NavigationProperty Name="Translation" Relationship="Self.FK_Task_Translator" FromRole="Translator" ToRole="Translation" />
           <NavigationProperty Name="User" Relationship="Self.FK_Translator_User" FromRole="Translator" ToRole="User" />
         </EntityType>
         <EntityType Name="User">
@@ -466,6 +493,18 @@
           <Property Name="transliteration" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="notes" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Categoria_ru" Relationship="Self.FK_Dictionary_ru_Categoria_ru" FromRole="Dictionary_ru" ToRole="Categoria_ru" />
+        </EntityType>
+        <EntityType Name="God_ru">
+          <Key>
+            <PropertyRef Name="name" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="gardiner_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="hieroglyphic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="transliteration" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="type" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="view" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Triliteral">
           <Key>
@@ -517,12 +556,12 @@
         </Association>
         <Association Name="FK_Task_Client">
           <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
-          <End Role="Task" Type="Self.Task" Multiplicity="*" />
+          <End Role="Translation" Type="Self.Translation" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Client">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Task">
+            <Dependent Role="Translation">
               <PropertyRef Name="clientId" />
             </Dependent>
           </ReferentialConstraint>
@@ -555,12 +594,12 @@
         </Association>
         <Association Name="FK_Task_Translator">
           <End Role="Translator" Type="Self.Translator" Multiplicity="0..1" />
-          <End Role="Task" Type="Self.Task" Multiplicity="*" />
+          <End Role="Translation" Type="Self.Translation" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Translator">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Task">
+            <Dependent Role="Translation">
               <PropertyRef Name="translatorId" />
             </Dependent>
           </ReferentialConstraint>
@@ -585,12 +624,13 @@
           <EntitySet Name="Gender" EntityType="Self.Gender" />
           <EntitySet Name="Role" EntityType="Self.Role" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-          <EntitySet Name="Task" EntityType="Self.Task" />
+          <EntitySet Name="Translation" EntityType="Self.Translation" />
           <EntitySet Name="Translator" EntityType="Self.Translator" />
           <EntitySet Name="User" EntityType="Self.User" />
           <EntitySet Name="Alphabet" EntityType="Self.Alphabet" />
           <EntitySet Name="Biliteral" EntityType="Self.Biliteral" />
           <EntitySet Name="Dictionary_ru" EntityType="Self.Dictionary_ru" />
+          <EntitySet Name="God_ru" EntityType="Self.God_ru" />
           <EntitySet Name="Triliteral" EntityType="Self.Triliteral" />
           <AssociationSet Name="FK_Dictionary_ru_Categoria_ru" Association="Self.FK_Dictionary_ru_Categoria_ru">
             <End Role="Categoria_ru" EntitySet="Categoria_ru" />
@@ -606,7 +646,7 @@
           </AssociationSet>
           <AssociationSet Name="FK_Task_Client" Association="Self.FK_Task_Client">
             <End Role="Client" EntitySet="Client" />
-            <End Role="Task" EntitySet="Task" />
+            <End Role="Translation" EntitySet="Translation" />
           </AssociationSet>
           <AssociationSet Name="FK_Translator_Gender" Association="Self.FK_Translator_Gender">
             <End Role="Gender" EntitySet="Gender" />
@@ -618,7 +658,7 @@
           </AssociationSet>
           <AssociationSet Name="FK_Task_Translator" Association="Self.FK_Task_Translator">
             <End Role="Translator" EntitySet="Translator" />
-            <End Role="Task" EntitySet="Task" />
+            <End Role="Translation" EntitySet="Translation" />
           </AssociationSet>
           <AssociationSet Name="FK_Translator_User" Association="Self.FK_Translator_User">
             <End Role="User" EntitySet="User" />
@@ -688,6 +728,7 @@
                 <ScalarProperty Name="login" ColumnName="login" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="avatar" ColumnName="avatar" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -696,7 +737,6 @@
               <MappingFragment StoreEntitySet="Gender">
                 <ScalarProperty Name="code" ColumnName="code" />
                 <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="avatar" ColumnName="avatar" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -719,14 +759,14 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Task">
-            <EntityTypeMapping TypeName="EgyptianDBModel.Task">
-              <MappingFragment StoreEntitySet="Task">
+          <EntitySetMapping Name="Translation">
+            <EntityTypeMapping TypeName="EgyptianDBModel.Translation">
+              <MappingFragment StoreEntitySet="Translation">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="clientId" ColumnName="clientId" />
                 <ScalarProperty Name="translatorId" ColumnName="translatorId" />
                 <ScalarProperty Name="originalText" ColumnName="originalText" />
-                <ScalarProperty Name="task1" ColumnName="task" />
+                <ScalarProperty Name="task" ColumnName="task" />
                 <ScalarProperty Name="result" ColumnName="result" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -740,6 +780,7 @@
                 <ScalarProperty Name="gender" ColumnName="gender" />
                 <ScalarProperty Name="education" ColumnName="education" />
                 <ScalarProperty Name="experience" ColumnName="experience" />
+                <ScalarProperty Name="avatar" ColumnName="avatar" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -783,6 +824,19 @@
                 <ScalarProperty Name="phonogram" ColumnName="phonogram" />
                 <ScalarProperty Name="transliteration" ColumnName="transliteration" />
                 <ScalarProperty Name="notes" ColumnName="notes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="God_ru">
+            <EntityTypeMapping TypeName="EgyptianDBModel.God_ru">
+              <MappingFragment StoreEntitySet="God_ru">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="gardiner_code" ColumnName="gardiner_code" />
+                <ScalarProperty Name="hieroglyphic" ColumnName="hieroglyphic" />
+                <ScalarProperty Name="transliteration" ColumnName="transliteration" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="view" ColumnName="view" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

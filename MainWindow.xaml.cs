@@ -84,6 +84,16 @@ namespace EgyptianDictionary
         {
             Frame.Source = new Uri("Pages/GodsPage.xaml", UriKind.Relative);
         }
+        private void LV_Profile_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (App.CurrentUser.roleId == 1) Frame.Source = new Uri("Pages/ProfileClientPage.xaml", UriKind.Relative);
+            else if (App.CurrentUser.roleId == 2) Frame.Source = new Uri("Pages/ProfileTranslatorPage.xaml", UriKind.Relative);
+        }
+        private void LV_Exit_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            new LoginWindow().Show();
+            this.Close();
+        }
     }
 }
 

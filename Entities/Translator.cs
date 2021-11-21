@@ -17,7 +17,7 @@ namespace EgyptianDictionary.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Translator()
         {
-            this.Task = new HashSet<Task>();
+            this.Translation = new HashSet<Translation>();
         }
     
         public short id { get; set; }
@@ -26,10 +26,12 @@ namespace EgyptianDictionary.Entities
         public string gender { get; set; }
         public string education { get; set; }
         public string experience { get; set; }
-    
+        public string avatar { get; set; }
+        public string translatorName { get; set; }
+
         public virtual Gender Gender1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Task> Task { get; set; }
+        public virtual ICollection<Translation> Translation { get; set; }
         public virtual User User { get; set; }
     }
 }

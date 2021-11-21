@@ -50,7 +50,6 @@ namespace EgyptianDictionary
                 roleId = role,
             };
             App.Context.User.Add(newUser);
-            App.Context.SaveChanges();
             if (CBRole.SelectedItem == CBUser)
             {
                 Client newClient = new Client()

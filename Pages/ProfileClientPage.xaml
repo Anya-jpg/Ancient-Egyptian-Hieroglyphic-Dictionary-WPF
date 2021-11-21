@@ -1,0 +1,193 @@
+﻿<Page x:Class="EgyptianDictionary.Pages.ProfileClientPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EgyptianDictionary.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="895"
+      Title="ProfileClientPage">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="1" Background="WhiteSmoke">
+            <Label FontWeight="Bold" HorizontalAlignment="Center">Личный кабинет</Label>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Column="0" Grid.Row="0">Тип аккаунта:</TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="1">Логин:</TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="2">Пароль:</TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="3">Фото профиля:</TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="4">Имя:</TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="5">Пол:</TextBlock>
+                <TextBox Name="TBType" IsReadOnly="True" Margin="10"
+                    Grid.Column="1" Grid.Row="0"></TextBox>
+                <TextBox Name="TBLogin" IsReadOnly="True" Margin="10"
+                    Grid.Column="1" Grid.Row="1"></TextBox>
+                <TextBox Name="TBPassword" IsReadOnly="True" Margin="10"
+                    Grid.Column="1" Grid.Row="2"></TextBox>
+                <TextBox Name="TBPhoto" IsReadOnly="True" Margin="10"
+                    Grid.Column="1" Grid.Row="3"></TextBox>
+                <TextBox Name="TBName" IsReadOnly="True" Margin="10"
+                    Grid.Column="1" Grid.Row="4"></TextBox>
+                <ComboBox Name="CBGender" IsEnabled="False" Margin="10" 
+                    Grid.Column="1" Grid.Row="5">
+                    <ComboBoxItem Name="CBMale" Content="Мужской"></ComboBoxItem>
+                    <ComboBoxItem Name="CBFemale" Content="Женский"></ComboBoxItem>
+                </ComboBox>
+                <Button Name="BEdit" Margin="10,9.6,10,0"
+                        Grid.Column="0" Grid.Row="6" Height="20" VerticalAlignment="Top" Click="BEdit_Click">Редактировать</Button>
+                <Button Name="BSave" Margin="10" Visibility="Collapsed" Click="BSave_Click"
+                        Grid.Column="0" Grid.Row="6">Сохранить</Button>
+                <Button Name="Delete" Margin="10"  Click="BDelete_Click"
+                        Grid.Column="0" Grid.Row="7">Удалить аккаунт</Button>
+            </Grid>
+            <Grid Height="100">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="10 0">
+                    <Button Uid="0" Content="Создать заявку на перевод" Height="50" Width="295" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="black" Click="Button_Click"/>
+                    <Button Uid="1" Content="Отправленные заявки" Height="50" Width="295" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="black" Click="Button_Click"/>
+                    <Button Uid="2" Content="Выполненные заявки" Height="50" Width="295" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="black" Click="Button_Click"/>
+                </StackPanel>
+                <Grid x:Name="GridCursor" Width="295" Height="5" Background="#FF2196F3" HorizontalAlignment="Left" Margin="10 0"/>
+            </Grid>
+            <Grid Name="GridCreate">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBlock Margin="10"
+                    Grid.Column="0" Grid.Row="0"> Текст для перевода:</TextBlock>
+                <TextBlock Margin="10"
+                    Grid.Column="0" Grid.Row="1"> Задание:</TextBlock>
+                <TextBlock Margin="10"
+                    Grid.Column="0" Grid.Row="2"> Переводчик:</TextBlock>
+                <TextBox Name="TBText" Margin="10" FontFamily="Segoe UI Historic"
+                    Grid.Column="1" Grid.Row="0"></TextBox>
+                <TextBox  Name="TBTask" Margin="10"
+                    Grid.Column="1" Grid.Row="1"></TextBox>
+                <ComboBox Name="CBTranslator" Margin="10"
+                    Grid.Column="1" Grid.Row="2">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock  Width="auto" Grid.Column="0"
+                                       Text="{Binding name}" HorizontalAlignment="Left" Margin="1"></TextBlock>
+                                <TextBlock  Width="auto" Grid.Column="1"
+                                       Text="{Binding education}" HorizontalAlignment="Left" Margin="1"></TextBlock>
+                                <TextBlock  Width="auto" Grid.Column="2"
+                                       Text="{Binding experience}" HorizontalAlignment="Left" Margin="1"></TextBlock>
+                            </Grid>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <Button Margin="10" Name="BCreate"
+                    Grid.ColumnSpan="2" Grid.Row="3" Click="BCreate_Click">Отправить заявку</Button>
+            </Grid>
+            <Grid Name="GridSend" Visibility="Collapsed">
+                <StackPanel>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition  Width="200"></ColumnDefinition>
+                            <ColumnDefinition Width="200"></ColumnDefinition>
+                            <ColumnDefinition Width="200"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0"  TextAlignment="Center" TextWrapping="Wrap" Text="Текст для перевода"></TextBlock>
+                        <TextBlock Grid.Column="1"  TextAlignment="Center" Text="Задание"></TextBlock>
+                        <TextBlock Grid.Column="2" TextAlignment="Center" Text="Переводчик"></TextBlock>
+
+                    </Grid>
+                    <ListView Name="LViewSend">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition  Width="200"></ColumnDefinition>
+                                        <ColumnDefinition Width="200"></ColumnDefinition>
+                                        <ColumnDefinition Width="200"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Grid.Column="0" TextWrapping="Wrap"
+                                    FontFamily="Segoe UI Historic" 
+                                       Text="{Binding originalText}" HorizontalAlignment="Left"></TextBlock>
+                                    <TextBlock Grid.Column="1" 
+                                           Text="{Binding task}"></TextBlock>
+                                    <TextBlock Grid.Column="2" 
+                                           Text="{Binding translatorName}"></TextBlock>
+
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackPanel>
+            </Grid>
+            <Grid Name="GridResult" Visibility="Collapsed">
+                <StackPanel>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition  Width="150"></ColumnDefinition>
+                            <ColumnDefinition Width="150"></ColumnDefinition>
+                            <ColumnDefinition Width="150"></ColumnDefinition>
+                            <ColumnDefinition Width="150"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0"  TextAlignment="Center" TextWrapping="Wrap" Text="Текст для перевода"></TextBlock>
+                        <TextBlock Grid.Column="1"  TextAlignment="Center" Text="Задание"></TextBlock>
+                        <TextBlock Grid.Column="2" TextAlignment="Center" Text="Переводчик"></TextBlock>
+                        <TextBlock Grid.Column="3" TextAlignment="Center" Text="Результат"></TextBlock>
+
+                    </Grid>
+                    <ListView Name="LViewResult">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition  Width="150"></ColumnDefinition>
+                                        <ColumnDefinition Width="150"></ColumnDefinition>
+                                        <ColumnDefinition Width="150"></ColumnDefinition>
+                                        <ColumnDefinition Width="150"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Grid.Column="0" TextWrapping="Wrap"
+                                    FontFamily="Segoe UI Historic" 
+                                       Text="{Binding originalText}" HorizontalAlignment="Left"></TextBlock>
+                                    <TextBlock Grid.Column="1" 
+                                           Text="{Binding task}"></TextBlock>
+                                    <TextBlock Grid.Column="2" 
+                                           Text="{Binding translatorName}"></TextBlock>
+                                    <TextBlock Grid.Column="3"  TextWrapping="Wrap"
+                                           Text="{Binding result}"></TextBlock>
+
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Page>

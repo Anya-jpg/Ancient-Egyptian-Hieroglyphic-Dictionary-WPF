@@ -40,6 +40,7 @@
     <Property Name="login" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="gender" Type="nchar" MaxLength="1" />
+    <Property Name="avatar" Type="nvarchar" MaxLength="2" />
   </EntityType>
   <!--Ошибки, обнаруженные при создании:
 предупреждение 6002: В таблице или представлении "EgyptianDB.dbo.Dictionary_ru" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
@@ -63,7 +64,20 @@
     </Key>
     <Property Name="code" Type="nchar" MaxLength="1" Nullable="false" />
     <Property Name="name" Type="nvarchar" MaxLength="25" Nullable="false" />
-    <Property Name="avatar" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "EgyptianDB.dbo.God_ru" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="God_ru">
+    <Key>
+      <PropertyRef Name="name" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="gardiner_code" Type="varchar" MaxLength="50" />
+    <Property Name="hieroglyphic" Type="nvarchar" MaxLength="50" />
+    <Property Name="transliteration" Type="nvarchar" MaxLength="50" />
+    <Property Name="type" Type="nvarchar" MaxLength="255" />
+    <Property Name="description" Type="nvarchar(max)" />
+    <Property Name="view" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="Role">
     <Key>
@@ -82,7 +96,7 @@
     <Property Name="version" Type="int" />
     <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
-  <EntityType Name="Task">
+  <EntityType Name="Translation">
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -103,6 +117,7 @@
     <Property Name="gender" Type="nchar" MaxLength="1" />
     <Property Name="education" Type="nvarchar" MaxLength="255" />
     <Property Name="experience" Type="nvarchar" MaxLength="50" />
+    <Property Name="avatar" Type="nvarchar" MaxLength="2" />
   </EntityType>
   <!--Ошибки, обнаруженные при создании:
 предупреждение 6002: В таблице или представлении "EgyptianDB.dbo.Triliteral" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
@@ -164,24 +179,24 @@
   </Association>
   <Association Name="FK_Task_Client">
     <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
-    <End Role="Task" Type="Self.Task" Multiplicity="*" />
+    <End Role="Translation" Type="Self.Translation" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Client">
         <PropertyRef Name="id" />
       </Principal>
-      <Dependent Role="Task">
+      <Dependent Role="Translation">
         <PropertyRef Name="clientId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Task_Translator">
     <End Role="Translator" Type="Self.Translator" Multiplicity="0..1" />
-    <End Role="Task" Type="Self.Task" Multiplicity="*" />
+    <End Role="Translation" Type="Self.Translation" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Translator">
         <PropertyRef Name="id" />
       </Principal>
-      <Dependent Role="Task">
+      <Dependent Role="Translation">
         <PropertyRef Name="translatorId" />
       </Dependent>
     </ReferentialConstraint>
@@ -263,7 +278,7 @@
     <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Task" EntityType="Self.Task" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Translation" EntityType="Self.Translation" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Translator" EntityType="Self.Translator" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Alphabet" EntityType="Self.Alphabet" store:Type="Tables" store:Schema="dbo">
@@ -294,6 +309,17 @@
     [Dictionary_ru].[notes] AS [notes]
     FROM [dbo].[Dictionary_ru] AS [Dictionary_ru]</DefiningQuery>
     </EntitySet>
+    <EntitySet Name="God_ru" EntityType="Self.God_ru" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [God_ru].[name] AS [name], 
+    [God_ru].[gardiner_code] AS [gardiner_code], 
+    [God_ru].[hieroglyphic] AS [hieroglyphic], 
+    [God_ru].[transliteration] AS [transliteration], 
+    [God_ru].[type] AS [type], 
+    [God_ru].[description] AS [description], 
+    [God_ru].[view] AS [view]
+    FROM [dbo].[God_ru] AS [God_ru]</DefiningQuery>
+    </EntitySet>
     <EntitySet Name="Triliteral" EntityType="Self.Triliteral" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [Triliteral].[glyph] AS [glyph], 
@@ -316,11 +342,11 @@
     </AssociationSet>
     <AssociationSet Name="FK_Task_Client" Association="Self.FK_Task_Client">
       <End Role="Client" EntitySet="Client" />
-      <End Role="Task" EntitySet="Task" />
+      <End Role="Translation" EntitySet="Translation" />
     </AssociationSet>
     <AssociationSet Name="FK_Task_Translator" Association="Self.FK_Task_Translator">
       <End Role="Translator" EntitySet="Translator" />
-      <End Role="Task" EntitySet="Task" />
+      <End Role="Translation" EntitySet="Translation" />
     </AssociationSet>
     <AssociationSet Name="FK_Translator_Gender" Association="Self.FK_Translator_Gender">
       <End Role="Gender" EntitySet="Gender" />

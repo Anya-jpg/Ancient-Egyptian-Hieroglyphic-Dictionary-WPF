@@ -89,3 +89,10 @@ C:\Users\anya7\Documents\GitHub\Ancient-Egyptian-Hieroglyphic-Dictionary-WPF\obj
 C:\Users\anya7\Documents\GitHub\Ancient-Egyptian-Hieroglyphic-Dictionary-WPF\obj\Debug\RegistrationWindow.g.cs
 C:\Users\anya7\Documents\GitHub\Ancient-Egyptian-Hieroglyphic-Dictionary-WPF\obj\Debug\LoginWindow.baml
 C:\Users\anya7\Documents\GitHub\Ancient-Egyptian-Hieroglyphic-Dictionary-WPF\obj\Debug\RegistrationWindow.baml
+C:\Users\anya7\Documents\GitHub\Ancient-Egyptian-Hieroglyphic-Dictionary-WPF\obj\Debug\App.baml
+C:\Users\anya7\Documents\GitHub\Ancient-Egyptian-Hieroglyphic-Dictionary-WPF\obj\Debug\Pages\ProfileClientPage.g.cs
+C:\Users\anya7\Documents\GitHub\Ancient-Egyptian-Hieroglyphic-Dictionary-WPF\obj\Debug\Pages\ProfileTranslatorPage.g.cs
+C:\Users\anya7\Documents\GitHub\Ancient-Egyptian-Hieroglyphic-Dictionary-WPF\obj\Debug\Pages\ProfileClientPage.baml
+C:\Users\anya7\Documents\GitHub\Ancient-Egyptian-Hieroglyphic-Dictionary-WPF\obj\Debug\Pages\ProfileTranslatorPage.baml
+C:\Users\anya7\Documents\GitHub\Ancient-Egyptian-Hieroglyphic-Dictionary-WPF\obj\Debug\TranslationWindow.g.cs
+C:\Users\anya7\Documents\GitHub\Ancient-Egyptian-Hieroglyphic-Dictionary-WPF\obj\Debug\TranslationWindow.baml
