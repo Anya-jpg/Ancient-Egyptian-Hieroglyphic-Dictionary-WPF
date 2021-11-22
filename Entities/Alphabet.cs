@@ -15,7 +15,7 @@ namespace EgyptianDictionary.Entities
     public partial class Alphabet
     {
         public string glyph { get; set; }
-        public string gardiner_code_1 { get; set; }
+        public string gardiner_code { get; set; }
         public string transliteration { get; set; }
         public string manual_cotage { get; set; }
     }

@@ -21,7 +21,7 @@ namespace EgyptianDictionary.Pages
     /// </summary>
     public partial class DictionaryPage : Page
     {
-        List<Dictionary_ru> dictionary_ru = App.Context.Dictionary_ru.ToList();
+        readonly List<Dictionary_ru> dictionary_ru = App.Context.Dictionary_ru.ToList();
         public DictionaryPage()
         {
             InitializeComponent();
@@ -32,7 +32,7 @@ namespace EgyptianDictionary.Pages
         {
             int index = int.Parse(((Button)e.Source).Uid);
 
-            GridCursor.Margin = new Thickness(10 + (30 * index), 0, 0, 0);
+            GridCursor.Margin = new Thickness(15 + (32 * index), 0, 0, 0);
 
             switch (index)
             {
@@ -122,6 +122,45 @@ namespace EgyptianDictionary.Pages
                     break;
             }
             
+        }
+
+        private void BSearh_Click(object sender, RoutedEventArgs e)
+        {
+            var modified = App.Context.Dictionary_ru.ToList();
+            if (TBSearchGardiner.Text == "" && TBSearchTransliteration.Text == "" && TBSearchUnicode.Text == "" && TBSearchWords.Text == "")
+            {
+                LViewDictionary.ItemsSource = dictionary_ru;
+            }
+            if (TBSearchGardiner.Text != "")
+            {
+                modified = modified.Where(p => !string.IsNullOrEmpty(p.gardiner_code) && p.gardiner_code.ToLower().Contains(TBSearchGardiner.Text.ToLower())).ToList();
+            }
+            if (TBSearchTransliteration.Text != "")
+            {
+                modified = modified.Where(p => !string.IsNullOrEmpty(p.transliteration) && p.transliteration.ToLower().Contains(TBSearchTransliteration.Text.ToLower())).ToList();
+            }
+            if (TBSearchUnicode.Text != "")
+            {
+                modified = modified.Where(p => !string.IsNullOrEmpty(p.glyph) && p.glyph.ToLower().Contains(TBSearchUnicode.Text.ToLower())).ToList();
+            }
+            if (TBSearchWords.Text != "")
+            {
+                modified = modified.Where(p => !string.IsNullOrEmpty(p.description) && p.description.ToLower().Contains(TBSearchWords.Text.ToLower())
+                || !string.IsNullOrEmpty(p.notes) && p.notes.ToLower().Contains(TBSearchWords.Text.ToLower())
+                || !string.IsNullOrEmpty(p.phonogram) && p.phonogram.ToLower().Contains(TBSearchWords.Text.ToLower())).ToList();
+            }
+            LViewDictionary.ItemsSource = modified;
+        }
+
+        private void BEdit_Click(object sender, RoutedEventArgs e)
+        {
+            BSave.Visibility = Visibility.Visible;
+            BEdit.Visibility = Visibility.Collapsed;
+            
+        }
+        private void BSave_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

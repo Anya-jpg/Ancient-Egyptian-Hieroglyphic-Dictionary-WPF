@@ -20,8 +20,8 @@ namespace EgyptianDictionary.Entities
         public string originalText { get; set; }
         public string task { get; set; }
         public string result { get; set; }
-        public string translatorName { get; set; }
         public string clientName { get; set; }
+        public string translatorName{ get; set; }
 
         public virtual Client Client { get; set; }
         public virtual Translator Translator { get; set; }

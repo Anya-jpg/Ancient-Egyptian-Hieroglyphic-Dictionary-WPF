@@ -7,66 +7,37 @@
         mc:Ignorable="d"
         Title="MainWindow" 
         Height="800" 
-        Width="955"
+        Width="1000"
         ResizeMode="NoResize"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen">
 
     <Grid>
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
         <!--// Background Color //-->
+        <Grid Background="#033f63">
 
-        <Grid Background="#fff2b2">
+        </Grid>
+        <Grid Background="#fff2b2" Grid.Row="1">
 
             <!--// Background Image //-->
 
             <Grid x:Name="BG" PreviewMouseLeftButtonDown="BG_PreviewMouseLeftButtonDown">
-                <Frame Name="Frame" Source="Pages/DictionaryPage.xaml"></Frame>
-
+                <Frame Name="Frame" Source="Pages/DictionaryPage.xaml" NavigationUIVisibility="Hidden"></Frame>
             </Grid>
 
             <!--// App Close Button //-->
-
-            <Grid>
-
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="60"/>
-                    <ColumnDefinition Width="30"/>
-                </Grid.ColumnDefinitions>
-
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition Height="60"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-
-                <Button x:Name="CloseBtn"
-                        Grid.Column="1"
-                        Grid.Row="1"
-                        Height="40"
-                        Width="40"
-                        BorderThickness="0"
-                        Style="{StaticResource Close_btn}" Click="CloseBtn_Click">
-
-                    <Button.Background>
-
-                        <ImageBrush ImageSource="Assets/closeBtn_default.png"/>
-
-                    </Button.Background>
-
-                </Button>
-
-            </Grid>
-
 
             <!--// Navigation Panel //-->
 
             <Grid   x:Name="nav_pnl"
                     HorizontalAlignment="Left"
-                    Width="65"
+                    Width="74"
                     
-                    Background="#ffee99">
+                    Background="#28666e">
 
                 <StackPanel x:Name="st_pnl">
 
@@ -106,7 +77,7 @@
                                       Grid.Column="0"
                                       VerticalAlignment="Center"
                                       HorizontalAlignment="Left"
-                                      Margin="18,-20,0,0"
+                                      Margin="20,-20,0,0"
                                       Height="30"
                                       Width="30"
                                       BorderThickness="0"
@@ -136,7 +107,7 @@
                                                 Storyboard.TargetName="nav_pnl"
                                                 Storyboard.TargetProperty="Width"
                                                 BeginTime="0:0:0"
-                                                From="230" To="65"
+                                                From="230" To="74"
                                                 Duration="0:0:0.2">
 
                                             </DoubleAnimation>
@@ -158,7 +129,7 @@
                                                 Storyboard.TargetName="nav_pnl"
                                                 Storyboard.TargetProperty="Width"
                                                 BeginTime="0:0:0"
-                                                From="65" To="230"
+                                                From="74" To="230"
                                                 Duration="0:0:0.3">
 
                                             </DoubleAnimation>
@@ -186,15 +157,14 @@
                         <!--// Home //-->
 
                         <ListViewItem Name="LV_Alphabet" HorizontalAlignment="Left"
-                                      Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter" PreviewMouseLeftButtonDown="LV_Alphabet_PreviewMouseLeftButtonDown" 
+                                      Margin="0,0,0,20" MouseEnter="ListViewItem_MouseEnter" PreviewMouseLeftButtonDown="LV_Alphabet_PreviewMouseLeftButtonDown" 
                                       >
 
                             <StackPanel Orientation="Horizontal"
                                         Width="230">
 
                                 <Image Source="Assets/img_alphabet.png"
-                                       Stretch="None"
-                                       Margin="12,0,0,0"/>
+                                       Margin="7,0,0,0"/>
 
                                 <TextBlock Text="Фонограммы"
                                            Margin="25,0,0,0"
@@ -217,17 +187,16 @@
                         <!--// Contacts //-->
 
                         <ListViewItem Name="LV_Dictionary" HorizontalAlignment="Left"
-                                      Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter" PreviewMouseLeftButtonDown="LV_DictionaryPage_PreviewMouseLeftButtonDown"
+                                      Margin="0,0,0,20" MouseEnter="ListViewItem_MouseEnter" PreviewMouseLeftButtonDown="LV_DictionaryPage_PreviewMouseLeftButtonDown"
                                       >
 
                             <StackPanel Orientation="Horizontal"
                                         Width="230">
 
                                 <Image Source="Assets/img_dictionary.png"
-                                       Stretch="None"
-                                       Margin="12,0,0,0"/>
+                                       Margin="7,0,0,0"/>
 
-                                <TextBlock Text="Словарь иероглифов и слов"
+                                <TextBlock Text="Словарь"
                                            Margin="25,0,0,0"
                                            Style="{StaticResource font_style}"/>
 
@@ -238,7 +207,7 @@
                             <ListViewItem.ToolTip>
 
                                 <ToolTip x:Name="tt_dictionary"
-                                         Content="Словарь иероглифов и слов"
+                                         Content="Словарь"
                                          Style="{StaticResource tt_style}"/>
 
                             </ListViewItem.ToolTip>
@@ -248,17 +217,16 @@
                         <!--// Messages //-->
 
                         <ListViewItem Name="LV_Pharaons" HorizontalAlignment="Left"
-                                      Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter" PreviewMouseLeftButtonDown="LV_Pharaons_PreviewMouseLeftButtonDown"
+                                      Margin="0,0,0,20" MouseEnter="ListViewItem_MouseEnter" PreviewMouseLeftButtonDown="LV_Pharaons_PreviewMouseLeftButtonDown"
                                       >
 
                             <StackPanel Orientation="Horizontal"
                                         Width="230">
 
                                 <Image Source="Assets/img_pharaoh.png"
-                                       Stretch="None"
-                                       Margin="12,0,0,0"/>
+                                       Margin="7,0,0,0"/>
 
-                                <TextBlock Text="Абидосский список"
+                                <TextBlock Text="Фараоны"
                                            Margin="25,0,0,0"
                                            Style="{StaticResource font_style}"/>
 
@@ -269,7 +237,7 @@
                             <ListViewItem.ToolTip>
 
                                 <ToolTip x:Name="tt_pharaon"
-                                         Content="Абидосский список"
+                                         Content="Фараоны"
                                          Style="{StaticResource tt_style}"/>
 
                             </ListViewItem.ToolTip>
@@ -279,17 +247,16 @@
                         <!--// Maps //-->
 
                         <ListViewItem Name="LV_Gods" HorizontalAlignment="Left"
-                                      Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter" PreviewMouseLeftButtonDown="LV_Gods_PreviewMouseLeftButtonDown"
+                                      Margin="0,0,0,20" MouseEnter="ListViewItem_MouseEnter" PreviewMouseLeftButtonDown="LV_Gods_PreviewMouseLeftButtonDown"
                                       >
 
                             <StackPanel Orientation="Horizontal"
                                         Width="230">
 
                                 <Image Source="Assets/img_god.png"
-                                       Stretch="None"
-                                       Margin="12,0,0,0"/>
+                                       Margin="7,0,0,0"/>
 
-                                <TextBlock Text="Древнеегипетские Боги"
+                                <TextBlock Text="Божества"
                                            Margin="25,0,0,0"
                                            Style="{StaticResource font_style}"/>
 
@@ -300,7 +267,7 @@
                             <ListViewItem.ToolTip>
 
                                 <ToolTip x:Name="tt_gods"
-                                         Content="Древнеегипетские Боги"
+                                         Content="Божества"
                                          Style="{StaticResource tt_style}"/>
 
                             </ListViewItem.ToolTip>
@@ -308,17 +275,16 @@
                         </ListViewItem>
 
                         <ListViewItem Name="LV_Profile" HorizontalAlignment="Left" 
-                                      Margin="0,320,0,15" MouseEnter="ListViewItem_MouseEnter" PreviewMouseLeftButtonDown="LV_Profile_PreviewMouseLeftButtonDown"
+                                      Margin="0,270,0,20" MouseEnter="ListViewItem_MouseEnter" PreviewMouseLeftButtonDown="LV_Profile_PreviewMouseLeftButtonDown"
                                       >
 
                             <StackPanel Orientation="Horizontal"
                                         Width="230">
 
                                 <Image Source="Assets/img_god.png"
-                                       Stretch="None"
-                                       Margin="12,0,0,0"/>
+                                       Margin="7,0,0,0"/>
 
-                                <TextBlock Text="Древнеегипетские Боги"
+                                <TextBlock Text="Профиль"
                                            Margin="25,0,0,0"
                                            Style="{StaticResource font_style}"/>
 
@@ -329,22 +295,21 @@
                             <ListViewItem.ToolTip>
 
                                 <ToolTip x:Name="tt_profile"
-                                         Content="Профиль и переводы"
+                                         Content="Профиль"
                                          Style="{StaticResource tt_style}"/>
 
                             </ListViewItem.ToolTip>
 
                         </ListViewItem>
                         <ListViewItem Name="LV_Exit" HorizontalAlignment="Left" 
-                                      Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter" PreviewMouseLeftButtonDown="LV_Exit_PreviewMouseLeftButtonDown"
+                                      Margin="0,0,0,20" MouseEnter="ListViewItem_MouseEnter" PreviewMouseLeftButtonDown="LV_Exit_PreviewMouseLeftButtonDown"
                                       >
 
                             <StackPanel Orientation="Horizontal"
                                         Width="230">
 
-                                <Image Source="Assets/img_god.png"
-                                       Stretch="None"
-                                       Margin="12,0,0,0"/>
+                                <Image Source="Assets/img_logout.png"
+                                       Margin="7,0,0,0"/>
 
                                 <TextBlock Text="Выйти"
                                            Margin="25,0,0,0"
@@ -357,7 +322,7 @@
                             <ListViewItem.ToolTip>
 
                                 <ToolTip x:Name="tt_exit"
-                                         Content="Выйти из аккаунта"
+                                         Content="Выйти"
                                          Style="{StaticResource tt_style}"/>
 
                             </ListViewItem.ToolTip>
@@ -403,7 +368,7 @@
 
                                                     <Setter Property="Background"
                                                             TargetName="Bd"
-                                                            Value="#404D5B"/>
+                                                            Value="#43838c"/>
 
 
                                                 </MultiTrigger>

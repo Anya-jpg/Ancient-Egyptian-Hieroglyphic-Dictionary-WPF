@@ -27,8 +27,7 @@ namespace EgyptianDictionary.Entities
         public string education { get; set; }
         public string experience { get; set; }
         public string avatar { get; set; }
-        public string translatorName { get; set; }
-
+    
         public virtual Gender Gender1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Translation> Translation { get; set; }

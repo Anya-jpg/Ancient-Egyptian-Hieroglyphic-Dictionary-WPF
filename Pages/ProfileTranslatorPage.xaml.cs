@@ -22,10 +22,10 @@ namespace EgyptianDictionary.Pages
     /// </summary>
     public partial class ProfileTranslatorPage : Page
     {
-        List<Translation> translations = App.Context.Translation.ToList();
-        List<Translator> translators = App.Context.Translator.ToList();
-        List<Client> clients = App.Context.Client.ToList();
-        List<Role> roles = App.Context.Role.ToList();
+        readonly List<Translation> translations = App.Context.Translation.ToList();
+        readonly List<Translator> translators = App.Context.Translator.ToList();
+        readonly List<Client> clients = App.Context.Client.ToList();
+        readonly List<Role> roles = App.Context.Role.ToList();
         public ProfileTranslatorPage()
         {
             InitializeComponent();

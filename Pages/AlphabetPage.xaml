@@ -5,52 +5,97 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:EgyptianDictionary.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="800" d:DesignWidth="955"
-      Title="AlphabetPage">
+      d:DesignHeight="800" d:DesignWidth="926"
+      Title="AlphabetPage"
+      FontFamily="Segoe UI Historic">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="65"></ColumnDefinition>
+            <ColumnDefinition Width="74"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="1">
-            <StackPanel Grid.Column="1">
-                <Grid Height="40">
-                    <StackPanel HorizontalAlignment="Left" Margin="20 0">
-                        <ComboBox FontSize="15" Width="50" Foreground="#FFA2A2A2" SelectedIndex="0" VerticalAlignment="Center">
-                            <ComboBoxItem Content="EN"/>
-                        </ComboBox>
-                    </StackPanel>
-                </Grid>
-                <Grid Height="100">
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="10 0">
-                        <Button Uid="0" Content="Алфавит" Height="50" Width="298" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="black" Click="Button_Click"/>
-                        <Button Uid="1" Content="Двусогласные знаки" Height="50" Width="298" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="black" Click="Button_Click"/>
-                        <Button Uid="2" Content="Трехсогласные знаки" Height="50" Width="298" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="black" Click="Button_Click"/>
-                    </StackPanel>
-                    <Grid x:Name="GridCursor" Width="298" Height="5" Background="#FF2196F3" HorizontalAlignment="Left" Margin="10 0"/>
-                </Grid>
-            </StackPanel>
-            <ListView Name="LViewPhonogram" ScrollViewer.VerticalScrollBarVisibility="Visible" Height="660">
+ <Grid Height="150">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition ></RowDefinition>
+                    <RowDefinition ></RowDefinition>
+                    <RowDefinition ></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Grid.ColumnSpan="3" Grid.Row="0">Древнеегипетские фонограммы</Label>
+                <Label 
+                    Grid.Row="1">Введите иероглиф на Юникоде:</Label>
+                        <Label 
+                            Grid.Row="2">Введите код или его часть по Гардинеру:</Label>
+                <Label 
+                            Grid.Row="3">Введите транслитерацию или ее часть:</Label>
+                <TextBox Margin="5" Name="TBSearchUnicode"
+                   Grid.Row="1" Grid.Column="1" ></TextBox>
+                <TextBox  Margin="5" Name="TBSearchGardiner"
+                   Grid.Row="2" Grid.Column="1" ></TextBox>
+                <TextBox  Margin="5" Name="TBSearchTransliteration"
+                   Grid.Row="3" Grid.Column="1" ></TextBox>
+                <Button Margin="20" Name="BSearh" Background="#28666e" BorderBrush="white" 
+                        Foreground="white" FontSize="14" FontWeight="Bold"
+                    Grid.RowSpan="2" Grid.Row="1" Grid.Column="2" Click="BSearh_Click">Поиск</Button>
+                <Button Margin="20,0,20,00" Name="BEdit" Background="#28666e" BorderBrush="white" 
+                         Foreground="white" FontSize="14" FontWeight="Bold"
+                    Grid.RowSpan="2" Grid.Row="3" Grid.Column="2" Click="BEdit_Click">Режим редактирования</Button>
+                <Button Margin="20,0,20,0" Name="BSave" Background="white" BorderBrush="#28666e" 
+                         Foreground="#28666e" FontSize="14" FontWeight="Bold" Visibility="Collapsed"
+                    Grid.RowSpan="2" Grid.Row="3" Grid.Column="2" Click="BSave_Click">Сохранить</Button>
+            </Grid>
+            <Grid Height="50" Margin="0,0,0,20">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="40,0,0,0">
+                    <Button Uid="0" Content="Алфавит" Height="25" Width="284" Background="{x:Null}" Foreground="black" Click="Button_Click" BorderThickness="0,0,0,0" BorderBrush="#e8c27b" />
+                    <Button Uid="1" Content="Двусогласные знаки" Height="25" Width="284" Background="{x:Null}"  Foreground="black" Click="Button_Click" BorderThickness="1,0,0,0" BorderBrush="#e8c27b"/>
+                    <Button Uid="2" Content="Трехсогласные знаки" Height="25" Width="284" Background="{x:Null}"  Foreground="black" Click="Button_Click" BorderThickness="1,0,0,0" BorderBrush="#e8c27b"/>
+                </StackPanel>
+                <Grid x:Name="GridCursor" Width="284" Height="5" Background="#28666e" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="40,0,0,0"/>
+            </Grid>
+            <Grid Height="20" Margin="196,0,151,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition  Width="100"></ColumnDefinition>
+                    <ColumnDefinition Width="150"></ColumnDefinition>
+                    <ColumnDefinition Width="150"></ColumnDefinition>
+                    <ColumnDefinition Width="150"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBox Grid.Column="0" TextAlignment="Center" Text="Иероглиф" Background="#28666e" Foreground="white" IsReadOnly="True"
+                           BorderThickness="1,1,1,1" BorderBrush="white"></TextBox>
+                <TextBox Grid.Column="1"  TextAlignment="Center" Text="Код Гардинера" Background="#28666e" Foreground="white" IsReadOnly="True"
+                              BorderThickness="0,1,1,1" BorderBrush="white"></TextBox>
+                <TextBox Grid.Column="2"  TextAlignment="Center" Text="Транслитерация" Background="#28666e" Foreground="white" IsReadOnly="True"
+                              BorderThickness="0,1,1,1" BorderBrush="white"></TextBox>
+                <TextBox Grid.Column="3" TextAlignment="Center" Text="Manuel de Codage" Background="#28666e" Foreground="white" IsReadOnly="True"
+                              BorderThickness="0,1,1,1" BorderBrush="white"></TextBox>
+            </Grid>
+            <ListView Name="LViewPhonogram" ScrollViewer.VerticalScrollBarVisibility="Visible" Height="535" Margin="188,0,151,0" Background="Transparent"  BorderThickness="0,0,0,0">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition></ColumnDefinition>
-                                <ColumnDefinition></ColumnDefinition>
-                                <ColumnDefinition></ColumnDefinition>
-                                <ColumnDefinition></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
-                                <TextBlock Grid.Column="0" 
-                                    FontFamily="Segoe UI Historic" FontSize="50"
-                                       Text="{Binding glyph}" HorizontalAlignment="Left"></TextBlock>
-                            <TextBlock Grid.Column="1" 
-                                           Text="{Binding gardiner_code}"></TextBlock>
-                            <TextBlock Grid.Column="2" 
-                                           Text="{Binding transliteration}"></TextBlock>
-                            <TextBlock Grid.Column="3" 
-                                           Text="{Binding manual_cotage}"></TextBlock>
+                        <Border BorderBrush="#e8c27b" BorderThickness="1" CornerRadius="8, 8, 3, 3">
+                            <Grid Background="#fff2b2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition  Width="100"></ColumnDefinition>
+                                    <ColumnDefinition Width="150"></ColumnDefinition>
+                                    <ColumnDefinition Width="150"></ColumnDefinition>
+                                    <ColumnDefinition Width="150"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <TextBox Grid.Column="0"  TextAlignment="Center" TextWrapping="Wrap" IsReadOnly="True"  Background="Transparent" BorderThickness="0,0,0,0" BorderBrush="#e8c27b" 
+                                    FontSize="50" Height="75"
+                                       Text="{Binding glyph}"></TextBox>
+                                <TextBox Grid.Column="1"  TextAlignment="Center" TextWrapping="Wrap" IsReadOnly="True"  Background="Transparent" BorderThickness="1,0,0,0" BorderBrush="#e8c27b" 
+                                           Text="{Binding gardiner_code}" Height="75"></TextBox>
+                                <TextBox Grid.Column="2"  TextAlignment="Center" TextWrapping="Wrap" IsReadOnly="True"  Background="Transparent" BorderThickness="1,0,0,0" BorderBrush="#e8c27b" 
+                                           Text="{Binding transliteration}" Height="75"></TextBox>
+                                <TextBox Grid.Column="3"  TextAlignment="Center" TextWrapping="Wrap" IsReadOnly="True"  Background="Transparent" BorderThickness="1,0,0,0" BorderBrush="#e8c27b" 
+                                           Text="{Binding manual_cotage}" Height="75"></TextBox>
 
-                        </Grid>
+                            </Grid>
+                        </Border>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

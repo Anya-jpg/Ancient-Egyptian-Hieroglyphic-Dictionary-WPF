@@ -21,7 +21,7 @@ namespace EgyptianDictionary
     /// 
     public partial class TranslationWindow : Window
     {
-        private Entities.Translation _currentTranslation = null;
+        readonly private Entities.Translation _currentTranslation = null;
         public TranslationWindow(Entities.Translation currentTranslation)
         {
             InitializeComponent();

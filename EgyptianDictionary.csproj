@@ -1336,28 +1336,14 @@
     <Resource Include="Assets\eye-of-horus.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\img_dictionary2.png" />
-    <Resource Include="Assets\img_dictionary1.png" />
-    <Resource Include="Assets\img_pharaoh1.png" />
-    <Resource Include="Assets\img_pharaoh2.png" />
-    <Resource Include="Assets\img_alphabet1.png" />
-    <Resource Include="Assets\img_alphabet2.png" />
-    <Resource Include="Assets\img_god1.png" />
-    <Resource Include="Assets\img_god2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Assets\crook.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Assets\crook %281%29.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Assets\n35a.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\img_background1.png" />
-  </ItemGroup>
-  <ItemGroup>
+    <Resource Include="Assets\img_dictionary.png" />
+    <Resource Include="Assets\img_pharaoh.png" />
+    <Resource Include="Assets\img_alphabet.png" />
+    <Resource Include="Assets\img_god.png" />
+    <Resource Include="Assets\img_logout.png" />
     <Content Include="Entities\EgyptianModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>EgyptianModel.edmx</DependentUpon>
@@ -1369,12 +1355,6 @@
       <LastGenOutput>EgyptianModel.cs</LastGenOutput>
     </Content>
     <Resource Include="Assets\ouroboros.png" />
-    <Resource Include="Assets\img_background3.png" />
-    <Resource Include="Assets\img_dictionary.png" />
-    <Resource Include="Assets\img_pharaoh.png" />
-    <Resource Include="Assets\img_alphabet.png" />
-    <Resource Include="Assets\img_god.png" />
-    <Content Include="Assets\img_background.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

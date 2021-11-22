@@ -94,7 +94,7 @@
       <PropertyRef Name="transliteration" />
     </Key>
     <Property Name="glyph" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="gardiner_code_1" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="gardiner_code" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
     <Property Name="transliteration" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="manual_cotage" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
   </EntityType>
