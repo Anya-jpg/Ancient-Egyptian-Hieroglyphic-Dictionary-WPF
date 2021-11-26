@@ -131,19 +131,19 @@
                                 </Grid.ColumnDefinitions>
                                 <TextBox Grid.Column="0"  TextAlignment="Center" IsReadOnly="True"  Background="Transparent" BorderThickness="0,0,0,0" BorderBrush="#e8c27b"
                                     FontFamily="Segoe UI Historic" FontSize="50" Name="TBGlyph"
-                                       Text="{Binding glyph}" ></TextBox>
+                                       Text="{Binding Glyph}" ></TextBox>
                                 <TextBox Grid.Column="1"  TextAlignment="Center" IsReadOnly="True"  Background="Transparent" BorderThickness="1,0,0,0" BorderBrush="#e8c27b" Name="TBUnicode"
-                                          Text="{Binding unicode}"></TextBox>
+                                          Text="{Binding Unicode}"></TextBox>
                                 <TextBox Grid.Column="2"  TextAlignment="Center" IsReadOnly="True"  Background="Transparent" BorderThickness="1,0,0,0" BorderBrush="#e8c27b" Name="TBGardiner"
-                                          Text="{Binding gardiner_code}"></TextBox>
+                                          Text="{Binding GardinerCode}"></TextBox>
                                 <TextBox Grid.Column="3"  TextAlignment="Center" TextWrapping="Wrap" IsReadOnly="True"  Background="Transparent" BorderThickness="1,0,0,0" BorderBrush="#e8c27b" 
-                                           Text="{Binding description}" Name="TBDescriprion" AcceptsReturn="True"></TextBox>
+                                           Text="{Binding Description}" Name="TBDescriprion" AcceptsReturn="True"></TextBox>
                                 <TextBox Grid.Column="4"  TextAlignment="Center" TextWrapping="Wrap" IsReadOnly="True"  Background="Transparent" BorderThickness="1,0,0,0" BorderBrush="#e8c27b"
-                                           Text="{Binding phonogram}" Name="TBPhonogram" AcceptsReturn="True"></TextBox>
+                                           Text="{Binding Phonogram}" Name="TBPhonogram" AcceptsReturn="True"></TextBox>
                                 <TextBox Grid.Column="5"  TextAlignment="Center" TextWrapping="Wrap" IsReadOnly="True" Background="Transparent" BorderThickness="1,0,0,0" BorderBrush="#e8c27b"
-                                           Text="{Binding transliteration}" Name="TBTransliteration" AcceptsReturn="True"></TextBox>
+                                           Text="{Binding Transliteration}" Name="TBTransliteration" AcceptsReturn="True"></TextBox>
                                 <TextBox Grid.Column="6" TextWrapping="Wrap" TextAlignment="Center" IsReadOnly="True" Background="Transparent" BorderThickness="1,0,0,0" BorderBrush="#e8c27b"
-                                           Text="{Binding notes}" Name="TBNotes" AcceptsReturn="True"></TextBox> 
+                                           Text="{Binding Notes}" Name="TBNotes" AcceptsReturn="True"></TextBox> 
 
                         </Grid>
                         </Border>

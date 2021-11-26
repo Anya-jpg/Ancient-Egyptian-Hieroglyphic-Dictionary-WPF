@@ -5,34 +5,54 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EgyptianDictionary"
         mc:Ignorable="d"
-        Title="TranslationWindow" Height="450" Width="450" WindowStartupLocation="CenterScreen">
+        Title="Написание перевода" Height="450" Width="450" 
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        FontFamily="Segoe UI Historic"
+        FontSize="16"
+        Background="#fff2b2">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition/>
+            <RowDefinition />
         </Grid.RowDefinitions>
         <Label Name="LClient"
                Grid.Row="0"></Label>
         <Label HorizontalAlignment="Center" FontWeight="Bold"
-            Grid.Row="1">Текст для перевода: </Label>
+            Grid.Row="1"
+               VerticalAlignment="Bottom"
+               Margin="25,10,25,0">Текст для перевода: </Label>
         <TextBlock Name="TBOriginal" TextWrapping="Wrap"
+                   TextAlignment="Center"
+                   Margin="25,5,25,0"
             Grid.Row="2"></TextBlock>
         <Label HorizontalAlignment="Center" FontWeight="Bold"
+               VerticalAlignment="Bottom"
+               Margin="25,10,25,0"
             Grid.Row="3">Задание:</Label>
         <TextBlock Name="TBTask" TextWrapping="Wrap"
+                   TextAlignment="Center"
+                   Margin="25,5,25,0"
             Grid.Row="4"></TextBlock>
         <Label HorizontalAlignment="Center" FontWeight="Bold"
-            Grid.Row="5">Перевод:</Label>
+            Grid.Row="5"
+               VerticalAlignment="Bottom"
+               Margin="25,10,25,0">Перевод:</Label>
         <TextBox Name="TBResult" TextWrapping="Wrap" AcceptsReturn="True"
+                 Margin="25,5,25,0"
            Grid.Row="6" Grid.RowSpan="1"></TextBox>
         <Button Name="BSend"
+                Background="#28666e"
+                Foreground="white"
+                BorderBrush="white"
+                Height="35" 
+               Margin="25,0,25,0"
                 Grid.Row="8" Click="BSend_Click">Отправить перевод</Button>
     </Grid>
 </Window>

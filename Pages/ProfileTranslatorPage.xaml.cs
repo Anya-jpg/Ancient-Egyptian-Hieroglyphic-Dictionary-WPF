@@ -33,9 +33,9 @@ namespace EgyptianDictionary.Pages
             {
                 for (int i = 0; i < clients.Count; i++)
                 {
-                    if (translations[t].clientId == clients[i].id)
+                    if (translations[t].ClientId == clients[i].Id)
                     {
-                        translations[t].clientName = clients[i].name;
+                        translations[t].ClientName = clients[i].Name;
                     }
                 }
             }
@@ -44,31 +44,31 @@ namespace EgyptianDictionary.Pages
             string roleCurrent = "";
             for (int t = 0; t < translators.Count; t++)
             {
-                if (translators[t].login == App.CurrentUser.login)
+                if (translators[t].Login == App.CurrentUser.Login)
                 {
-                   translatorCurrent = translators[t].id;
+                   translatorCurrent = translators[t].Id;
                     translatorCount = t;
                 }
 
             }
             for (int r = 0; r < roles.Count; r++)
             {
-                if (roles[r].id == App.CurrentUser.roleId)
+                if (roles[r].Id == App.CurrentUser.RoleId)
                 {
-                    roleCurrent = roles[r].name;
+                    roleCurrent = roles[r].Name;
                 }
             }
             TBType.Text = roleCurrent;
-            TBLogin.Text = App.CurrentUser.login;
-            TBPassword.Text = App.CurrentUser.password;
-            TBName.Text = translators[translatorCount].name;
-            if (translators[translatorCount].gender == "м") CBGender.SelectedItem = CBMale;
+            TBLogin.Text = App.CurrentUser.Login;
+            TBPassword.Text = App.CurrentUser.Password;
+            TBName.Text = translators[translatorCount].Name;
+            if (translators[translatorCount].Gender == "м") CBGender.SelectedItem = CBMale;
             else CBGender.SelectedItem = CBFemale;
-            TBPhoto.Text = translators[translatorCount].avatar;
-            TBEducation.Text = translators[translatorCount].education;
-            TBExperience.Text = translators[translatorCount].experience;
-            LViewNow.ItemsSource = translations.Where(p => p.translatorId == translatorCurrent && p.result == null).ToList();
-            LViewDone.ItemsSource = translations.Where(p => p.translatorId == translatorCurrent && p.result != null).ToList();
+            TBPhoto.Text = translators[translatorCount].Avatar;
+            TBEducation.Text = translators[translatorCount].Education;
+            TBExperience.Text = translators[translatorCount].Experience;
+            LViewNow.ItemsSource = translations.Where(p => p.TranslatorId == translatorCurrent && p.Result == null).ToList();
+            LViewDone.ItemsSource = translations.Where(p => p.TranslatorId == translatorCurrent && p.Result != null).ToList();
 
         }
 
@@ -119,17 +119,17 @@ namespace EgyptianDictionary.Pages
             int translatorCurrent = 0;
             for (int t = 0; t < translators.Count; t++)
             {
-                if (translators[t].login == App.CurrentUser.login)
+                if (translators[t].Login == App.CurrentUser.Login)
                 {
                     translatorCurrent = t;
                 }
 
             }
-            App.CurrentUser.password = TBPassword.Text;
-            translators[translatorCurrent].name = TBName.Text;
-            translators[translatorCurrent].avatar = TBPhoto.Text;
-            translators[translatorCurrent].education = TBEducation.Text;
-            translators[translatorCurrent].experience = TBExperience.Text;
+            App.CurrentUser.Password = TBPassword.Text;
+            translators[translatorCurrent].Name = TBName.Text;
+            translators[translatorCurrent].Avatar = TBPhoto.Text;
+            translators[translatorCurrent].Education = TBEducation.Text;
+            translators[translatorCurrent].Experience = TBExperience.Text;
             App.Context.SaveChanges();
             MessageBox.Show("Информация о пользователе обновлена!");
             TBPassword.IsReadOnly = true;
@@ -150,16 +150,16 @@ namespace EgyptianDictionary.Pages
                 int translatorCurrent = 0;
                 for (int t = 0; t < translators.Count; t++)
                 {
-                    if (translators[t].login == App.CurrentUser.login)
+                    if (translators[t].Login == App.CurrentUser.Login)
                     {
                         translatorCount = t;
-                        translatorCurrent = translators[t].id;
+                        translatorCurrent = translators[t].Id;
                     }
 
                 }
                 for (int t = 0; t < translations.Count; t++)
                 {
-                    if (translations[t].translatorId == translatorCurrent)
+                    if (translations[t].TranslatorId == translatorCurrent)
                     {
                         App.Context.Translation.Remove(translations[t]);
                     }

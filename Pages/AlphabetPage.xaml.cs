@@ -21,13 +21,11 @@ namespace EgyptianDictionary.Pages
     /// </summary>
     public partial class AlphabetPage : Page
     {
-       readonly List<Alphabet> alphabet = App.Context.Alphabet.ToList();
-        readonly List<Biliteral> biliteral = App.Context.Biliteral.ToList();
-        readonly List<Triliteral> triliteral = App.Context.Triliteral.ToList();
+       readonly List<Phonogram> phonograms = App.Context.Phonogram.ToList();
         public AlphabetPage()
         {
             InitializeComponent();
-            LViewPhonogram.ItemsSource = alphabet;
+            LViewPhonogram.ItemsSource = phonograms.Where(p => p.Type == "alphabet").ToList();
 
         }
 
@@ -40,82 +38,38 @@ namespace EgyptianDictionary.Pages
             switch (index)
             {
                 case 0:
-                    LViewPhonogram.ItemsSource = alphabet;
+                    LViewPhonogram.ItemsSource = phonograms.Where(p => p.Type == "alphabet").ToList();
                     break;
                 case 1:
-                    LViewPhonogram.ItemsSource = biliteral;
+                    LViewPhonogram.ItemsSource = phonograms.Where(p => p.Type == "biliteral").ToList();
                     break;
                 case 2:
-                    LViewPhonogram.ItemsSource = triliteral;
+                    LViewPhonogram.ItemsSource = phonograms.Where(p => p.Type == "triliteral").ToList();
                     break;
             }
         }
         private void BSearh_Click(object sender, RoutedEventArgs e)
         {
-            var alphabets = App.Context.Alphabet.ToList();
-            var biliterals = App.Context.Biliteral.ToList();
-            var triliterals = App.Context.Triliteral.ToList();
+            var _phonograms = App.Context.Phonogram.ToList();
 
-            if (LViewPhonogram.ItemsSource == alphabet)
-            {
                 if (TBSearchGardiner.Text == "" && TBSearchTransliteration.Text == "" && TBSearchUnicode.Text == "")
                 {
-                    alphabets = App.Context.Alphabet.ToList();
+                _phonograms = App.Context.Phonogram.ToList();
                 }
                 if (TBSearchGardiner.Text != "")
                 {
-                    alphabets = alphabets.Where(p => !string.IsNullOrEmpty(p.gardiner_code) && p.gardiner_code.ToLower().Contains(TBSearchGardiner.Text.ToLower())).ToList();
+                _phonograms = _phonograms.Where(p => !string.IsNullOrEmpty(p.GardinerCode) && p.GardinerCode.ToLower().Contains(TBSearchGardiner.Text.ToLower())).ToList();
                 }
                 if (TBSearchTransliteration.Text != "")
                 {
-                    alphabets = alphabets.Where(p => !string.IsNullOrEmpty(p.transliteration) && p.transliteration.ToLower().Contains(TBSearchTransliteration.Text.ToLower())).ToList();
+                _phonograms = _phonograms.Where(p => !string.IsNullOrEmpty(p.Transliteration) && p.Transliteration.ToLower().Contains(TBSearchTransliteration.Text.ToLower())).ToList();
                 }
                 if (TBSearchUnicode.Text != "")
                 {
-                    alphabets = alphabets.Where(p => !string.IsNullOrEmpty(p.glyph) && p.glyph.ToLower().Contains(TBSearchUnicode.Text.ToLower())).ToList();
+                _phonograms = _phonograms.Where(p => !string.IsNullOrEmpty(p.Glyph) && p.Glyph.ToLower().Contains(TBSearchUnicode.Text.ToLower())).ToList();
                 }
-                LViewPhonogram.ItemsSource = alphabets;
-            }
-            if (LViewPhonogram.ItemsSource == biliteral)
-            {
-                if (TBSearchGardiner.Text == "" && TBSearchTransliteration.Text == "" && TBSearchUnicode.Text == "")
-                {
-                    biliterals = App.Context.Biliteral.ToList();
-                }
-                if (TBSearchGardiner.Text != "")
-                {
-                    biliterals = biliterals.Where(p => !string.IsNullOrEmpty(p.gardiner_code) && p.gardiner_code.ToLower().Contains(TBSearchGardiner.Text.ToLower())).ToList();
-                }
-                if (TBSearchTransliteration.Text != "")
-                {
-                    biliterals = biliterals.Where(p => !string.IsNullOrEmpty(p.transliteration) && p.transliteration.ToLower().Contains(TBSearchTransliteration.Text.ToLower())).ToList();
-                }
-                if (TBSearchUnicode.Text != "")
-                {
-                    biliterals = biliterals.Where(p => !string.IsNullOrEmpty(p.glyph) && p.glyph.ToLower().Contains(TBSearchUnicode.Text.ToLower())).ToList();
-                }
-                LViewPhonogram.ItemsSource = biliterals;
-            }
-            if (LViewPhonogram.ItemsSource == triliteral)
-            {
-                if (TBSearchGardiner.Text == "" && TBSearchTransliteration.Text == "" && TBSearchUnicode.Text == "")
-                {
-                    triliterals = App.Context.Triliteral.ToList();
-                }
-                if (TBSearchGardiner.Text != "")
-                {
-                    triliterals = triliterals.Where(p => !string.IsNullOrEmpty(p.gardiner_code) && p.gardiner_code.ToLower().Contains(TBSearchGardiner.Text.ToLower())).ToList();
-                }
-                if (TBSearchTransliteration.Text != "")
-                {
-                    triliterals = triliterals.Where(p => !string.IsNullOrEmpty(p.transliteration) && p.transliteration.ToLower().Contains(TBSearchTransliteration.Text.ToLower())).ToList();
-                }
-                if (TBSearchUnicode.Text != "")
-                {
-                    triliterals = triliterals.Where(p => !string.IsNullOrEmpty(p.glyph) && p.glyph.ToLower().Contains(TBSearchUnicode.Text.ToLower())).ToList();
-                }
-                LViewPhonogram.ItemsSource = triliterals;
-            }
+                LViewPhonogram.ItemsSource = _phonograms;
+           
         }
 
         private void BEdit_Click(object sender, RoutedEventArgs e)

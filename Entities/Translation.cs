@@ -14,14 +14,14 @@ namespace EgyptianDictionary.Entities
     
     public partial class Translation
     {
-        public short id { get; set; }
-        public Nullable<short> clientId { get; set; }
-        public Nullable<short> translatorId { get; set; }
-        public string originalText { get; set; }
-        public string task { get; set; }
-        public string result { get; set; }
-        public string clientName { get; set; }
-        public string translatorName{ get; set; }
+        public byte Id { get; set; }
+        public byte ClientId { get; set; }
+        public Nullable<byte> TranslatorId { get; set; }
+        public string OriginalText { get; set; }
+        public string Task { get; set; }
+        public string Result { get; set; }
+        public string ClientName { get; set; }
+        public string TranslatorName { get; set; }
 
         public virtual Client Client { get; set; }
         public virtual Translator Translator { get; set; }

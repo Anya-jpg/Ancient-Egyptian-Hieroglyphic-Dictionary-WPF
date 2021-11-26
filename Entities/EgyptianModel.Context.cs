@@ -27,19 +27,16 @@ namespace EgyptianDictionary.Entities
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Categoria_ru> Categoria_ru { get; set; }
+        public virtual DbSet<Categoria> Categoria { get; set; }
         public virtual DbSet<Client> Client { get; set; }
-        public virtual DbSet<Gender> Gender { get; set; }
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Translation> Translation { get; set; }
         public virtual DbSet<Translator> Translator { get; set; }
         public virtual DbSet<User> User { get; set; }
-        public virtual DbSet<Alphabet> Alphabet { get; set; }
-        public virtual DbSet<Biliteral> Biliteral { get; set; }
-        public virtual DbSet<Dictionary_ru> Dictionary_ru { get; set; }
-        public virtual DbSet<God_ru> God_ru { get; set; }
-        public virtual DbSet<Triliteral> Triliteral { get; set; }
+        public virtual DbSet<Dictionary> Dictionary { get; set; }
+        public virtual DbSet<God> God { get; set; }
+        public virtual DbSet<Phonogram> Phonogram { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

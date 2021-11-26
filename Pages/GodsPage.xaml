@@ -191,20 +191,20 @@
                                     <ColumnDefinition Width="200"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
                                 <TextBox Grid.Column="0" TextAlignment="Center" TextWrapping="Wrap" IsReadOnly="True"  Background="Transparent" BorderThickness="0,0,0,0" BorderBrush="#e8c27b" 
-                                           Text="{Binding name}"></TextBox>
+                                           Text="{Binding Name}"></TextBox>
                                 <TextBox Grid.Column="1" TextAlignment="Center" TextWrapping="Wrap" IsReadOnly="True"  Background="Transparent" BorderThickness="1,0,0,0" BorderBrush="#e8c27b" 
-                                           Text="{Binding gardiner_code}"></TextBox>
+                                           Text="{Binding GardinerCode}"></TextBox>
                                 <TextBox Grid.Column="2" TextAlignment="Center" TextWrapping="Wrap" IsReadOnly="True"  Background="Transparent" BorderThickness="1,0,0,0" BorderBrush="#e8c27b" 
                                     FontFamily="Segoe UI Historic" FontSize="25"
-                                       Text="{Binding hieroglyphic}" HorizontalAlignment="Left"></TextBox>
+                                       Text="{Binding Hieroglyphic}" HorizontalAlignment="Left"></TextBox>
                                 <TextBox Grid.Column="3" TextAlignment="Center" TextWrapping="Wrap" IsReadOnly="True"  Background="Transparent" BorderThickness="1,0,0,0" BorderBrush="#e8c27b" 
-                                           Text="{Binding transliteration}"></TextBox>
+                                           Text="{Binding Transliteration}"></TextBox>
                                 <TextBox Grid.Column="4" TextAlignment="Center" TextWrapping="Wrap" IsReadOnly="True"  Background="Transparent" BorderThickness="1,0,0,0" BorderBrush="#e8c27b" 
-                                           Text="{Binding type}"></TextBox>
+                                           Text="{Binding Type}"></TextBox>
                                 <TextBox Grid.Column="5" TextAlignment="Center" TextWrapping="Wrap" IsReadOnly="True"  Background="Transparent" BorderThickness="1,0,0,0" BorderBrush="#e8c27b" 
-                                           Text="{Binding description}"></TextBox>
+                                           Text="{Binding Description}"></TextBox>
                                 <TextBox Grid.Column="6" TextAlignment="Center" TextWrapping="Wrap" IsReadOnly="True"  Background="Transparent" BorderThickness="1,0,0,0" BorderBrush="#e8c27b" 
-                                           Text="{Binding view}"></TextBox>
+                                           Text="{Binding View}"></TextBox>
 
                             </Grid>
                         </Border>

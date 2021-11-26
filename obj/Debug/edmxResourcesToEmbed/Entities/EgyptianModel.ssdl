@@ -1,90 +1,73 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="Хранилище EgyptianDBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "EgyptianDB.dbo.Alphabet" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
-  <EntityType Name="Alphabet">
+  <EntityType Name="Categoria">
     <Key>
-      <PropertyRef Name="glyph" />
-      <PropertyRef Name="transliteration" />
+      <PropertyRef Name="Categoria" />
     </Key>
-    <Property Name="glyph" Type="nvarchar" MaxLength="10" Nullable="false" />
-    <Property Name="gardiner_code_1" Type="varchar" MaxLength="25" />
-    <Property Name="transliteration" Type="nvarchar" MaxLength="25" Nullable="false" />
-    <Property Name="manual_cotage" Type="varchar" MaxLength="10" />
-  </EntityType>
-  <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "EgyptianDB.dbo.Biliteral" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
-  <EntityType Name="Biliteral">
-    <Key>
-      <PropertyRef Name="glyph" />
-      <PropertyRef Name="transliteration" />
-    </Key>
-    <Property Name="glyph" Type="nvarchar" MaxLength="10" Nullable="false" />
-    <Property Name="gardiner_code" Type="varchar" MaxLength="25" />
-    <Property Name="transliteration" Type="nvarchar" MaxLength="25" Nullable="false" />
-    <Property Name="manual_cotage" Type="varchar" MaxLength="10" />
-  </EntityType>
-  <EntityType Name="Categoria_ru">
-    <Key>
-      <PropertyRef Name="categoria" />
-    </Key>
-    <Property Name="categoria" Type="varchar" MaxLength="5" Nullable="false" />
-    <Property Name="amount" Type="smallint" />
-    <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Categoria" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="Amount" Type="smallint" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
   </EntityType>
   <EntityType Name="Client">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="id" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="login" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="gender" Type="nchar" MaxLength="1" />
-    <Property Name="avatar" Type="nvarchar" MaxLength="2" />
+    <Property Name="Id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Login" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Gender" Type="nchar" MaxLength="1" />
+    <Property Name="Avatar" Type="nvarchar" MaxLength="2" />
   </EntityType>
   <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "EgyptianDB.dbo.Dictionary_ru" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
-  <EntityType Name="Dictionary_ru">
+предупреждение 6002: В таблице или представлении "EgyptianDB.dbo.Dictionary" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="Dictionary">
     <Key>
-      <PropertyRef Name="categoria" />
-      <PropertyRef Name="gardiner_code" />
+      <PropertyRef Name="Categoria" />
+      <PropertyRef Name="GardinerCode" />
     </Key>
-    <Property Name="glyph" Type="nvarchar" MaxLength="10" />
-    <Property Name="unicode" Type="nvarchar" MaxLength="25" />
-    <Property Name="categoria" Type="varchar" MaxLength="5" Nullable="false" />
-    <Property Name="gardiner_code" Type="varchar" MaxLength="25" Nullable="false" />
-    <Property Name="description" Type="nvarchar" MaxLength="255" />
-    <Property Name="phonogram" Type="nvarchar" MaxLength="255" />
-    <Property Name="transliteration" Type="nvarchar" MaxLength="255" />
-    <Property Name="notes" Type="nvarchar" MaxLength="500" />
-  </EntityType>
-  <EntityType Name="Gender">
-    <Key>
-      <PropertyRef Name="code" />
-    </Key>
-    <Property Name="code" Type="nchar" MaxLength="1" Nullable="false" />
-    <Property Name="name" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="Glyph" Type="nvarchar" MaxLength="10" />
+    <Property Name="Unicode" Type="nvarchar" MaxLength="25" />
+    <Property Name="Categoria" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="GardinerCode" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="255" />
+    <Property Name="Phonogram" Type="nvarchar" MaxLength="255" />
+    <Property Name="Transliteration" Type="nvarchar" MaxLength="255" />
+    <Property Name="Notes" Type="nvarchar" MaxLength="500" />
   </EntityType>
   <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "EgyptianDB.dbo.God_ru" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
-  <EntityType Name="God_ru">
+предупреждение 6002: В таблице или представлении "EgyptianDB.dbo.God" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="God">
     <Key>
-      <PropertyRef Name="name" />
+      <PropertyRef Name="Name" />
     </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="gardiner_code" Type="varchar" MaxLength="50" />
-    <Property Name="hieroglyphic" Type="nvarchar" MaxLength="50" />
-    <Property Name="transliteration" Type="nvarchar" MaxLength="50" />
-    <Property Name="type" Type="nvarchar" MaxLength="255" />
-    <Property Name="description" Type="nvarchar(max)" />
-    <Property Name="view" Type="nvarchar(max)" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="GardinerCode" Type="varchar" MaxLength="50" />
+    <Property Name="Hieroglyphic" Type="nvarchar" MaxLength="50" />
+    <Property Name="Transliteration" Type="nvarchar" MaxLength="50" />
+    <Property Name="Type" Type="nvarchar" MaxLength="255" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="View" Type="nvarchar(max)" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "EgyptianDB.dbo.Phonogram" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="Phonogram">
+    <Key>
+      <PropertyRef Name="Glyph" />
+      <PropertyRef Name="GardinerCode" />
+      <PropertyRef Name="Transliteration" />
+    </Key>
+    <Property Name="Glyph" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="GardinerCode" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="Transliteration" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="ManuelCotage" Type="varchar" MaxLength="10" />
+    <Property Name="Type" Type="varchar" MaxLength="25" />
   </EntityType>
   <EntityType Name="Role">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -98,59 +81,35 @@
   </EntityType>
   <EntityType Name="Translation">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="id" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="clientId" Type="smallint" />
-    <Property Name="translatorId" Type="smallint" />
-    <Property Name="originalText" Type="nvarchar" MaxLength="255" Nullable="false" />
-    <Property Name="task" Type="nvarchar" MaxLength="255" />
-    <Property Name="result" Type="nvarchar" MaxLength="255" />
+    <Property Name="Id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClientId" Type="tinyint" Nullable="false" />
+    <Property Name="TranslatorId" Type="tinyint" />
+    <Property Name="OriginalText" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Task" Type="nvarchar" MaxLength="255" />
+    <Property Name="Result" Type="nvarchar" MaxLength="255" />
   </EntityType>
   <EntityType Name="Translator">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="id" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="login" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="gender" Type="nchar" MaxLength="1" />
-    <Property Name="education" Type="nvarchar" MaxLength="255" />
-    <Property Name="experience" Type="nvarchar" MaxLength="50" />
-    <Property Name="avatar" Type="nvarchar" MaxLength="2" />
-  </EntityType>
-  <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "EgyptianDB.dbo.Triliteral" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
-  <EntityType Name="Triliteral">
-    <Key>
-      <PropertyRef Name="glyph" />
-      <PropertyRef Name="transliteration" />
-    </Key>
-    <Property Name="glyph" Type="nvarchar" MaxLength="10" Nullable="false" />
-    <Property Name="gardiner_code" Type="varchar" MaxLength="25" />
-    <Property Name="transliteration" Type="nvarchar" MaxLength="25" Nullable="false" />
-    <Property Name="manual_cotage" Type="varchar" MaxLength="10" />
+    <Property Name="Id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Login" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Gender" Type="nchar" MaxLength="1" />
+    <Property Name="Education" Type="nvarchar" MaxLength="255" />
+    <Property Name="Experience" Type="nvarchar" MaxLength="50" />
+    <Property Name="Avatar" Type="nvarchar" MaxLength="2" />
   </EntityType>
   <EntityType Name="User">
     <Key>
-      <PropertyRef Name="login" />
+      <PropertyRef Name="Login" />
     </Key>
-    <Property Name="login" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="password" Type="varchar" MaxLength="8" />
-    <Property Name="roleId" Type="int" Nullable="false" />
+    <Property Name="Login" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="RoleId" Type="tinyint" Nullable="false" />
   </EntityType>
-  <Association Name="FK_Client_Gender">
-    <End Role="Gender" Type="Self.Gender" Multiplicity="0..1" />
-    <End Role="Client" Type="Self.Client" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Gender">
-        <PropertyRef Name="code" />
-      </Principal>
-      <Dependent Role="Client">
-        <PropertyRef Name="gender" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Client_User">
     <End Role="User" Type="Self.User" Multiplicity="1">
       <OnDelete Action="Cascade" />
@@ -158,34 +117,34 @@
     <End Role="Client" Type="Self.Client" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
-        <PropertyRef Name="login" />
+        <PropertyRef Name="Login" />
       </Principal>
       <Dependent Role="Client">
-        <PropertyRef Name="login" />
+        <PropertyRef Name="Login" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Dictionary_ru_Categoria_ru">
-    <End Role="Categoria_ru" Type="Self.Categoria_ru" Multiplicity="1" />
-    <End Role="Dictionary_ru" Type="Self.Dictionary_ru" Multiplicity="*" />
+    <End Role="Categoria" Type="Self.Categoria" Multiplicity="1" />
+    <End Role="Dictionary" Type="Self.Dictionary" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Categoria_ru">
-        <PropertyRef Name="categoria" />
+      <Principal Role="Categoria">
+        <PropertyRef Name="Categoria" />
       </Principal>
-      <Dependent Role="Dictionary_ru">
-        <PropertyRef Name="categoria" />
+      <Dependent Role="Dictionary">
+        <PropertyRef Name="Categoria" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Task_Client">
-    <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
     <End Role="Translation" Type="Self.Translation" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Client">
-        <PropertyRef Name="id" />
+        <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Translation">
-        <PropertyRef Name="clientId" />
+        <PropertyRef Name="ClientId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -194,22 +153,10 @@
     <End Role="Translation" Type="Self.Translation" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Translator">
-        <PropertyRef Name="id" />
+        <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Translation">
-        <PropertyRef Name="translatorId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Translator_Gender">
-    <End Role="Gender" Type="Self.Gender" Multiplicity="0..1" />
-    <End Role="Translator" Type="Self.Translator" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Gender">
-        <PropertyRef Name="code" />
-      </Principal>
-      <Dependent Role="Translator">
-        <PropertyRef Name="gender" />
+        <PropertyRef Name="TranslatorId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -220,10 +167,10 @@
     <End Role="Translator" Type="Self.Translator" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
-        <PropertyRef Name="login" />
+        <PropertyRef Name="Login" />
       </Principal>
       <Dependent Role="Translator">
-        <PropertyRef Name="login" />
+        <PropertyRef Name="Login" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -234,10 +181,10 @@
     <End Role="User" Type="Self.User" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Role">
-        <PropertyRef Name="id" />
+        <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="User">
-        <PropertyRef Name="roleId" />
+        <PropertyRef Name="RoleId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -273,72 +220,52 @@
   </Function>
   <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="Хранилище EgyptianDBModelContainer">
-    <EntitySet Name="Categoria_ru" EntityType="Self.Categoria_ru" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Categoria" EntityType="Self.Categoria" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Translation" EntityType="Self.Translation" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Translator" EntityType="Self.Translator" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Alphabet" EntityType="Self.Alphabet" store:Type="Tables" store:Schema="dbo">
+    <EntitySet Name="Dictionary" EntityType="Self.Dictionary" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
-    [Alphabet].[glyph] AS [glyph], 
-    [Alphabet].[gardiner_code_1] AS [gardiner_code_1], 
-    [Alphabet].[transliteration] AS [transliteration], 
-    [Alphabet].[manual_cotage] AS [manual_cotage]
-    FROM [dbo].[Alphabet] AS [Alphabet]</DefiningQuery>
+    [Dictionary].[Glyph] AS [Glyph], 
+    [Dictionary].[Unicode] AS [Unicode], 
+    [Dictionary].[Categoria] AS [Categoria], 
+    [Dictionary].[GardinerCode] AS [GardinerCode], 
+    [Dictionary].[Description] AS [Description], 
+    [Dictionary].[Phonogram] AS [Phonogram], 
+    [Dictionary].[Transliteration] AS [Transliteration], 
+    [Dictionary].[Notes] AS [Notes]
+    FROM [dbo].[Dictionary] AS [Dictionary]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="Biliteral" EntityType="Self.Biliteral" store:Type="Tables" store:Schema="dbo">
+    <EntitySet Name="God" EntityType="Self.God" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
-    [Biliteral].[glyph] AS [glyph], 
-    [Biliteral].[gardiner_code] AS [gardiner_code], 
-    [Biliteral].[transliteration] AS [transliteration], 
-    [Biliteral].[manual_cotage] AS [manual_cotage]
-    FROM [dbo].[Biliteral] AS [Biliteral]</DefiningQuery>
+    [God].[Name] AS [Name], 
+    [God].[GardinerCode] AS [GardinerCode], 
+    [God].[Hieroglyphic] AS [Hieroglyphic], 
+    [God].[Transliteration] AS [Transliteration], 
+    [God].[Type] AS [Type], 
+    [God].[Description] AS [Description], 
+    [God].[View] AS [View]
+    FROM [dbo].[God] AS [God]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="Dictionary_ru" EntityType="Self.Dictionary_ru" store:Type="Tables" store:Schema="dbo">
+    <EntitySet Name="Phonogram" EntityType="Self.Phonogram" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
-    [Dictionary_ru].[glyph] AS [glyph], 
-    [Dictionary_ru].[unicode] AS [unicode], 
-    [Dictionary_ru].[categoria] AS [categoria], 
-    [Dictionary_ru].[gardiner_code] AS [gardiner_code], 
-    [Dictionary_ru].[description] AS [description], 
-    [Dictionary_ru].[phonogram] AS [phonogram], 
-    [Dictionary_ru].[transliteration] AS [transliteration], 
-    [Dictionary_ru].[notes] AS [notes]
-    FROM [dbo].[Dictionary_ru] AS [Dictionary_ru]</DefiningQuery>
+    [Phonogram].[Glyph] AS [Glyph], 
+    [Phonogram].[GardinerCode] AS [GardinerCode], 
+    [Phonogram].[Transliteration] AS [Transliteration], 
+    [Phonogram].[ManuelCotage] AS [ManuelCotage], 
+    [Phonogram].[Type] AS [Type]
+    FROM [dbo].[Phonogram] AS [Phonogram]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="God_ru" EntityType="Self.God_ru" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [God_ru].[name] AS [name], 
-    [God_ru].[gardiner_code] AS [gardiner_code], 
-    [God_ru].[hieroglyphic] AS [hieroglyphic], 
-    [God_ru].[transliteration] AS [transliteration], 
-    [God_ru].[type] AS [type], 
-    [God_ru].[description] AS [description], 
-    [God_ru].[view] AS [view]
-    FROM [dbo].[God_ru] AS [God_ru]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="Triliteral" EntityType="Self.Triliteral" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [Triliteral].[glyph] AS [glyph], 
-    [Triliteral].[gardiner_code] AS [gardiner_code], 
-    [Triliteral].[transliteration] AS [transliteration], 
-    [Triliteral].[manual_cotage] AS [manual_cotage]
-    FROM [dbo].[Triliteral] AS [Triliteral]</DefiningQuery>
-    </EntitySet>
-    <AssociationSet Name="FK_Client_Gender" Association="Self.FK_Client_Gender">
-      <End Role="Gender" EntitySet="Gender" />
-      <End Role="Client" EntitySet="Client" />
-    </AssociationSet>
     <AssociationSet Name="FK_Client_User" Association="Self.FK_Client_User">
       <End Role="User" EntitySet="User" />
       <End Role="Client" EntitySet="Client" />
     </AssociationSet>
     <AssociationSet Name="FK_Dictionary_ru_Categoria_ru" Association="Self.FK_Dictionary_ru_Categoria_ru">
-      <End Role="Categoria_ru" EntitySet="Categoria_ru" />
-      <End Role="Dictionary_ru" EntitySet="Dictionary_ru" />
+      <End Role="Categoria" EntitySet="Categoria" />
+      <End Role="Dictionary" EntitySet="Dictionary" />
     </AssociationSet>
     <AssociationSet Name="FK_Task_Client" Association="Self.FK_Task_Client">
       <End Role="Client" EntitySet="Client" />
@@ -347,10 +274,6 @@
     <AssociationSet Name="FK_Task_Translator" Association="Self.FK_Task_Translator">
       <End Role="Translator" EntitySet="Translator" />
       <End Role="Translation" EntitySet="Translation" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Translator_Gender" Association="Self.FK_Translator_Gender">
-      <End Role="Gender" EntitySet="Gender" />
-      <End Role="Translator" EntitySet="Translator" />
     </AssociationSet>
     <AssociationSet Name="FK_Translator_User" Association="Self.FK_Translator_User">
       <End Role="User" EntitySet="User" />

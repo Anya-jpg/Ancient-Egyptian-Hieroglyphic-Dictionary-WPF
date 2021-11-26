@@ -10,7 +10,8 @@
         Width="1000"
         ResizeMode="NoResize"
         WindowStyle="None"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        FontFamily="Segoe UI Historic">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -19,7 +20,24 @@
         </Grid.RowDefinitions>
         <!--// Background Color //-->
         <Grid Background="#033f63">
-
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+                <Button Height="20"
+                        Width="20"
+                        FontWeight="Bold"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        Foreground="white"
+                        Margin="0,0,5,0"
+                        Click="BMinimize_Click">—</Button>
+                <Button Height="20"
+                        Width="20"
+                        FontWeight="Bold"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        Foreground="white"
+                        Click="BClose_Click">🞪</Button>
+            </StackPanel>
         </Grid>
         <Grid Background="#fff2b2" Grid.Row="1">
 
@@ -281,8 +299,20 @@
                             <StackPanel Orientation="Horizontal"
                                         Width="230">
 
-                                <Image Source="Assets/img_god.png"
-                                       Margin="7,0,0,0"/>
+                                <TextBox Name="TBPhoto"
+                         MaxLength="1"
+                         FontSize="32"
+                         BorderThickness="3"
+                         BorderBrush="#e8c27b"
+                         Background="white"
+                         HorizontalAlignment="Center"
+                         Padding="-8"
+                         VerticalAlignment="Center"
+                         TextAlignment="Center"
+                         Width="40"
+                         Height="40"
+                         Margin="12,0,0,0"
+                         IsReadOnly="True" ></TextBox>
 
                                 <TextBlock Text="Профиль"
                                            Margin="25,0,0,0"

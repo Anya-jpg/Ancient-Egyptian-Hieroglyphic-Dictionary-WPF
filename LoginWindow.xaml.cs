@@ -26,7 +26,7 @@ namespace EgyptianDictionary
 
         private void BLogin_Click(object sender, RoutedEventArgs e)
         {
-            var currentUser = App.Context.User.FirstOrDefault(p => p.login == TBLogin.Text && p.password == PBPassword.Password);
+            var currentUser = App.Context.User.FirstOrDefault(p => p.Login == TBLogin.Text && p.Password == PBPassword.Password);
             if (TBLogin.Text == "" || PBPassword.Password == "")
             {
                 MessageBox.Show("Пустые поля!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -49,6 +49,15 @@ namespace EgyptianDictionary
         private void BRegistration_Click(object sender, RoutedEventArgs e)
         {
             new RegistrationWindow().Show();
+            this.Close();
+        }
+
+        private void BMinimize_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.MainWindow.WindowState = WindowState.Minimized;
+        }
+        private void BClose_Click(object sender, RoutedEventArgs e)
+        {
             this.Close();
         }
     }

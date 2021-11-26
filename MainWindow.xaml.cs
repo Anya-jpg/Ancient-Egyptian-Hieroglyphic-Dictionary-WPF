@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EgyptianDictionary.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,39 @@ namespace EgyptianDictionary
     /// </summary>
     public partial class MainWindow : Window
     {
+        readonly List<Translator> translators = App.Context.Translator.ToList();
+        readonly List<Client> clients = App.Context.Client.ToList();
         public MainWindow()
         {
             InitializeComponent();
+            int clientCount = 0;
+            for (int c = 0; c < clients.Count; c++)
+            {
+                if (clients[c].Login == App.CurrentUser.Login)
+                {
+                    clientCount = c;
+                }
+
+            }
+            int translatorCount = 0;
+            for (int t = 0; t < translators.Count; t++)
+            {
+                if (translators[t].Login == App.CurrentUser.Login)
+                {
+                    translatorCount = t;
+                }
+
+            }
+            if (App.CurrentUser.RoleId == 1)
+            {
+                if (clients[clientCount].Avatar != "")
+                    TBPhoto.Text = clients[clientCount].Avatar;
+            }
+            else if (App.CurrentUser.RoleId == 2)
+            {
+                if (translators[translatorCount].Avatar != "")
+                    TBPhoto.Text = translators[translatorCount].Avatar;
+            }
         }
 
         private void ListViewItem_MouseEnter(object sender, MouseEventArgs e)
@@ -86,12 +117,20 @@ namespace EgyptianDictionary
         }
         private void LV_Profile_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if (App.CurrentUser.roleId == 1) Frame.Source = new Uri("Pages/ProfileClientPage.xaml", UriKind.Relative);
-            else if (App.CurrentUser.roleId == 2) Frame.Source = new Uri("Pages/ProfileTranslatorPage.xaml", UriKind.Relative);
+            if (App.CurrentUser.RoleId == 1) Frame.Source = new Uri("Pages/ProfileClientPage.xaml", UriKind.Relative);
+            else if (App.CurrentUser.RoleId == 2) Frame.Source = new Uri("Pages/ProfileTranslatorPage.xaml", UriKind.Relative);
         }
         private void LV_Exit_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             new LoginWindow().Show();
+            this.Close();
+        }
+        private void BMinimize_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.MainWindow.WindowState = WindowState.Minimized;
+        }
+        private void BClose_Click(object sender, RoutedEventArgs e)
+        {
             this.Close();
         }
     }

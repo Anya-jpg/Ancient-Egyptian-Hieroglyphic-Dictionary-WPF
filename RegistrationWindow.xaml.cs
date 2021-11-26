@@ -32,31 +32,34 @@ namespace EgyptianDictionary
                 MessageBox.Show("Не все данные заполнены!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            if (App.Context.User.Select(Item => Item.login).Contains(TBLogin.Text))
+            if (App.Context.User.Select(Item => Item.Login).Contains(TBLogin.Text))
             {
                 MessageBox.Show("Такой логин уже существует в системе!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
             string g = "м";
-            int role = 1;
+            byte role = 1;
             if (CBGender.SelectedItem == CBMale) g ="м";
             if (CBGender.SelectedItem == CBFemale) g = "ж";
             if (CBRole.SelectedItem == CBUser) role = 1;
             if (CBRole.SelectedItem == CBTranslator) role = 2;
+            string photo = "𓁛";
+            if (TBPhoto.Text != "") photo = TBPhoto.Text;
             User newUser = new User()
             {
-                login = TBLogin.Text,
-                password = TBPassword.Password,
-                roleId = role,
+                Login = TBLogin.Text,
+                Password = TBPassword.Password,
+                RoleId = role,
             };
             App.Context.User.Add(newUser);
             if (CBRole.SelectedItem == CBUser)
             {
                 Client newClient = new Client()
                 {
-                    login = TBLogin.Text,
-                    name = TBName.Text,
-                    gender = g,
+                    Login = TBLogin.Text,
+                    Name = TBName.Text,
+                    Gender = g,
+                    Avatar = photo,
                 };
                 App.Context.Client.Add(newClient);
             }
@@ -64,11 +67,12 @@ namespace EgyptianDictionary
             {
                 Translator newTranslator = new Translator()
                 {
-                    login = TBLogin.Text,
-                    name = TBName.Text,
-                    gender = g,
-                    education = TBEducation.Text,
-                    experience = TBExperience.Text,
+                    Login = TBLogin.Text,
+                    Name = TBName.Text,
+                    Gender = g,
+                    Avatar = photo,
+                    Education = TBEducation.Text,
+                    Experience = TBExperience.Text,
                 };
                 App.Context.Translator.Add(newTranslator);
             }
@@ -96,6 +100,14 @@ namespace EgyptianDictionary
                 TBEducation.IsEnabled = false;
                 TBExperience.IsEnabled = false;
             }
+        }
+        private void BMinimize_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.MainWindow.WindowState = WindowState.Minimized;
+        }
+        private void BClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

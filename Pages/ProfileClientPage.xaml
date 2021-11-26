@@ -6,15 +6,181 @@
       xmlns:local="clr-namespace:EgyptianDictionary.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="800" d:DesignWidth="895"
-      Title="ProfileClientPage">
+      Title="ProfileClientPage"
+      FontFamily="Segoe UI Historic"
+      FontSize="14">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="80"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="1" Background="WhiteSmoke">
-            <Label FontWeight="Bold" HorizontalAlignment="Center">Личный кабинет</Label>
+        <StackPanel 
+            Grid.Column="1" 
+            Background="Transparent">
+            <Label 
+                FontSize="24"
+                FontWeight="Bold" 
+                HorizontalAlignment="Center">Личный кабинет</Label>
             <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBlock 
+                    HorizontalAlignment="Center"
+                    TextAlignment="Center"
+                    Grid.Column="0" 
+                    Grid.Row="0">Тип аккаунта:</TextBlock>
+                <TextBlock
+                     HorizontalAlignment="Center"
+                    Grid.Column="1" 
+                    Grid.Row="0">Фото профиля:
+                </TextBlock>
+                <TextBlock
+                     HorizontalAlignment="Center"
+                    Grid.Column="0" 
+                    Grid.Row="2">Логин:</TextBlock>
+                <TextBlock 
+                     HorizontalAlignment="Center"
+                    Grid.Column="1" 
+                    Grid.Row="2">Пароль:</TextBlock>
+                <TextBlock 
+                     HorizontalAlignment="Center"
+                    Grid.Column="0" 
+                    Grid.Row="4">Имя:</TextBlock>
+                <TextBlock 
+                     HorizontalAlignment="Center"
+                    Grid.Column="1" 
+                    Grid.Row="4">Пол:</TextBlock>
+                <TextBox Name="TBType"
+                          BorderBrush="#28666e"
+                         Height="30"
+                         IsReadOnly="True" 
+                         Margin="10"
+                         Grid.Column="0" 
+                         Grid.Row="1"></TextBox>
+                <TextBox Name="TBPhoto"
+                         MaxLength="2"
+                         FontSize="50"
+                         BorderThickness="4"
+                         BorderBrush="#28666e"
+                         Background="white"
+                         HorizontalAlignment="Center"
+                         TextAlignment="Center"
+                         Width="64"
+                         Height="64"
+                         IsReadOnly="True" 
+                         Margin="10"
+                         Grid.Column="1" 
+                         Grid.Row="1"></TextBox>
+                <TextBox Name="TBLogin" 
+                          BorderBrush="#28666e"
+                         IsReadOnly="True" 
+                         Margin="10"
+                         Grid.Column="0" 
+                         Grid.Row="3"></TextBox>
+                <TextBox 
+                    Name="TBPassword" 
+                     BorderBrush="#28666e"
+                    IsReadOnly="True" 
+                    Margin="10"
+                    Grid.Column="1" 
+                    Grid.Row="3"></TextBox>
+                <TextBox Name="TBName" 
+                          BorderBrush="#28666e"
+                         IsReadOnly="True" 
+                         Margin="10"
+                         Grid.Column="0" 
+                         Grid.Row="5"></TextBox>
+                <ComboBox Name="CBGender" 
+                           BorderBrush="#28666e"
+                          IsEnabled="False" 
+                          Margin="10" 
+                          Grid.Column="1" 
+                          Grid.Row="5">
+                    <ComboBoxItem Name="CBMale" Content="Мужской"></ComboBoxItem>
+                    <ComboBoxItem Name="CBFemale" Content="Женский"></ComboBoxItem>
+                </ComboBox>
+                <Button Name="BEdit"
+                        Background="#28666e"
+                        Foreground="white"
+                        BorderBrush="white"
+                        Margin="10"
+                        Grid.Column="0" 
+                        Grid.Row="6" 
+                        Height="30" 
+                        VerticalAlignment="Top"
+                        Click="BEdit_Click">Редактировать</Button>
+                <Button Name="BSave"
+                        Background="white"
+                        Foreground="#28666e"
+                        BorderBrush="#28666e"
+                        Margin="10" 
+                        Visibility="Collapsed"
+                        Click="BSave_Click"
+                        Height="30" 
+                        Grid.Column="0" 
+                        Grid.Row="6">Сохранить</Button>
+                <Button Name="Delete"
+                        Background="#28666e"
+                        Foreground="white"
+                        BorderBrush="white"
+                        Margin="10"  
+                        Click="BDelete_Click"
+                        Height="30" 
+                        Grid.Column="1" 
+                        Grid.Row="6">Удалить аккаунт</Button>
+            </Grid>
+            <Grid Height="50">
+                <StackPanel Orientation="Horizontal" Margin="10 0">
+                    <Button Uid="0" 
+                            Content="Создать заявку на перевод" 
+                            Height="25" 
+                            Width="295" 
+                            Background="{x:Null}"
+                            BorderThickness="0,0,0,0" 
+                            BorderBrush="#e8c27b"
+                            Foreground="black" 
+                            Click="Button_Click"/>
+                    <Button Uid="1" 
+                            Content="Отправленные заявки" 
+                            Height="25" Width="295" 
+                            Background="{x:Null}" 
+                            BorderThickness="1,0,0,0" 
+                            BorderBrush="#e8c27b"
+                            Foreground="black" 
+                            Click="Button_Click"/>
+                    <Button Uid="2" 
+                            Content="Выполненные заявки" 
+                            Height="25" 
+                            Width="295" 
+                            Background="{x:Null}" 
+                            BorderThickness="1,0,0,0" 
+                            BorderBrush="#e8c27b"
+                            Foreground="black" 
+                            Click="Button_Click"/>
+                </StackPanel>
+                <Grid x:Name="GridCursor" 
+                      Width="295" 
+                      Height="5"
+                      Background="#28666e" 
+                      HorizontalAlignment="Left" 
+                      VerticalAlignment="Bottom" 
+                      Margin="10 0"/>
+            </Grid>
+            <Grid Name="GridCreate" 
+                  Visibility="Visible"
+                  Margin="0,15,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto"></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
@@ -24,70 +190,35 @@
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
-                <TextBlock Grid.Column="0" Grid.Row="0">Тип аккаунта:</TextBlock>
-                <TextBlock Grid.Column="0" Grid.Row="1">Логин:</TextBlock>
-                <TextBlock Grid.Column="0" Grid.Row="2">Пароль:</TextBlock>
-                <TextBlock Grid.Column="0" Grid.Row="3">Фото профиля:</TextBlock>
-                <TextBlock Grid.Column="0" Grid.Row="4">Имя:</TextBlock>
-                <TextBlock Grid.Column="0" Grid.Row="5">Пол:</TextBlock>
-                <TextBox Name="TBType" IsReadOnly="True" Margin="10"
-                    Grid.Column="1" Grid.Row="0"></TextBox>
-                <TextBox Name="TBLogin" IsReadOnly="True" Margin="10"
-                    Grid.Column="1" Grid.Row="1"></TextBox>
-                <TextBox Name="TBPassword" IsReadOnly="True" Margin="10"
-                    Grid.Column="1" Grid.Row="2"></TextBox>
-                <TextBox Name="TBPhoto" IsReadOnly="True" Margin="10"
-                    Grid.Column="1" Grid.Row="3"></TextBox>
-                <TextBox Name="TBName" IsReadOnly="True" Margin="10"
-                    Grid.Column="1" Grid.Row="4"></TextBox>
-                <ComboBox Name="CBGender" IsEnabled="False" Margin="10" 
-                    Grid.Column="1" Grid.Row="5">
-                    <ComboBoxItem Name="CBMale" Content="Мужской"></ComboBoxItem>
-                    <ComboBoxItem Name="CBFemale" Content="Женский"></ComboBoxItem>
-                </ComboBox>
-                <Button Name="BEdit" Margin="10,9.6,10,0"
-                        Grid.Column="0" Grid.Row="6" Height="20" VerticalAlignment="Top" Click="BEdit_Click">Редактировать</Button>
-                <Button Name="BSave" Margin="10" Visibility="Collapsed" Click="BSave_Click"
-                        Grid.Column="0" Grid.Row="6">Сохранить</Button>
-                <Button Name="Delete" Margin="10"  Click="BDelete_Click"
-                        Grid.Column="0" Grid.Row="7">Удалить аккаунт</Button>
-            </Grid>
-            <Grid Height="100">
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="10 0">
-                    <Button Uid="0" Content="Создать заявку на перевод" Height="50" Width="295" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="black" Click="Button_Click"/>
-                    <Button Uid="1" Content="Отправленные заявки" Height="50" Width="295" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="black" Click="Button_Click"/>
-                    <Button Uid="2" Content="Выполненные заявки" Height="50" Width="295" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="black" Click="Button_Click"/>
-                </StackPanel>
-                <Grid x:Name="GridCursor" Width="295" Height="5" Background="#FF2196F3" HorizontalAlignment="Left" Margin="10 0"/>
-            </Grid>
-            <Grid Name="GridCreate">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                </Grid.RowDefinitions>
+                <TextBlock Margin="10" 
+                           Grid.Column="0" 
+                           Grid.Row="0"> Текст для перевода:</TextBlock>
                 <TextBlock Margin="10"
-                    Grid.Column="0" Grid.Row="0"> Текст для перевода:</TextBlock>
+                           Grid.Column="0" 
+                           Grid.Row="1"> Задание:</TextBlock>
                 <TextBlock Margin="10"
-                    Grid.Column="0" Grid.Row="1"> Задание:</TextBlock>
-                <TextBlock Margin="10"
-                    Grid.Column="0" Grid.Row="2"> Переводчик:</TextBlock>
-                <TextBox Name="TBText" Margin="10" FontFamily="Segoe UI Historic"
-                    Grid.Column="1" Grid.Row="0"></TextBox>
-                <TextBox  Name="TBTask" Margin="10"
-                    Grid.Column="1" Grid.Row="1"></TextBox>
-                <ComboBox Name="CBTranslator" Margin="10"
-                    Grid.Column="1" Grid.Row="2">
+                           Grid.Column="0" 
+                           Grid.Row="2"> Переводчик:</TextBlock>
+                <TextBox Name="TBText"
+                         Height="100"
+                         Margin="10"
+                         AcceptsReturn="True"
+                         BorderBrush="#28666e"
+                         Grid.Column="1" 
+                         Grid.Row="0"></TextBox>
+                <TextBox  Name="TBTask"
+                          AcceptsReturn="True"
+                          Height="50"
+                         BorderBrush="#28666e"
+                          Margin="10"
+                          Grid.Column="1" 
+                          Grid.Row="1"></TextBox>
+                <ComboBox Name="CBTranslator" 
+                          Margin="10"
+                          BorderBrush="#28666e"
+                          Grid.Column="1" 
+                          Grid.Row="2">
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
                             <Grid>
@@ -96,93 +227,216 @@
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
-                                <TextBlock  Width="auto" Grid.Column="0"
-                                       Text="{Binding name}" HorizontalAlignment="Left" Margin="1"></TextBlock>
-                                <TextBlock  Width="auto" Grid.Column="1"
-                                       Text="{Binding education}" HorizontalAlignment="Left" Margin="1"></TextBlock>
-                                <TextBlock  Width="auto" Grid.Column="2"
-                                       Text="{Binding experience}" HorizontalAlignment="Left" Margin="1"></TextBlock>
+                                <TextBlock  
+                                    Width="auto" 
+                                    Grid.Column="0"
+                                    Text="{Binding Name}" 
+                                    HorizontalAlignment="Left" 
+                                    Margin="1">, </TextBlock>
+                                <TextBlock  
+                                    Width="auto" 
+                                    Grid.Column="1"
+                                    Text="{Binding Education}" 
+                                    HorizontalAlignment="Left" Margin="1">, </TextBlock>
+                                <TextBlock  
+                                    Width="auto" 
+                                    Grid.Column="2"
+                                    Text="{Binding Experience}" HorizontalAlignment="Left" Margin="1"></TextBlock>
                             </Grid>
                         </DataTemplate>
                     </ComboBox.ItemTemplate>
                 </ComboBox>
-                <Button Margin="10" Name="BCreate"
-                    Grid.ColumnSpan="2" Grid.Row="3" Click="BCreate_Click">Отправить заявку</Button>
+                <Button Name="BCreate"
+                        Background="#28666e"
+                        Foreground="white"
+                        BorderBrush="white"
+                        Margin="10"
+                        Height="30" 
+                        Grid.ColumnSpan="2" 
+                        Grid.Row="3" 
+                        Click="BCreate_Click">Отправить заявку</Button>
             </Grid>
-            <Grid Name="GridSend" Visibility="Collapsed">
+            <Grid Name="GridSend" 
+                  Visibility="Collapsed" 
+                  Margin="0,10,0,0">
                 <StackPanel>
-                    <Grid>
+                    <Grid
+                        Margin="8,0,0,0">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition  Width="200"></ColumnDefinition>
-                            <ColumnDefinition Width="200"></ColumnDefinition>
-                            <ColumnDefinition Width="200"></ColumnDefinition>
+                            <ColumnDefinition  Width="400"></ColumnDefinition>
+                            <ColumnDefinition Width="250"></ColumnDefinition>
+                            <ColumnDefinition Width="250"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0"  TextAlignment="Center" TextWrapping="Wrap" Text="Текст для перевода"></TextBlock>
-                        <TextBlock Grid.Column="1"  TextAlignment="Center" Text="Задание"></TextBlock>
-                        <TextBlock Grid.Column="2" TextAlignment="Center" Text="Переводчик"></TextBlock>
+                        <TextBox 
+                                   Grid.Column="0"  
+                                   TextAlignment="Center" 
+                                   TextWrapping="Wrap" 
+                                   Text="Текст для перевода"
+                                   Background="#28666e" 
+                                   Foreground="white" 
+                                   IsReadOnly="True"
+                                   BorderThickness="1,1,1,1" 
+                                   BorderBrush="white"></TextBox>
+                        <TextBox Grid.Column="1"                                     
+                                   TextAlignment="Center" 
+                                   TextWrapping="Wrap" 
+                                   Text="Задание"
+                                   Background="#28666e" 
+                                   Foreground="white" 
+                                   IsReadOnly="True"
+                                   BorderThickness="1,1,1,1" 
+                                   BorderBrush="white"></TextBox>
+                        <TextBox Grid.Column="2"                                    
+                                   TextAlignment="Center" 
+                                   TextWrapping="Wrap" 
+                                   Text="Переводчик"
+                                   Background="#28666e" 
+                                   Foreground="white" 
+                                   IsReadOnly="True"
+                                   BorderThickness="1,1,1,1" 
+                                   BorderBrush="white"></TextBox>
 
                     </Grid>
-                    <ListView Name="LViewSend">
+                    <ListView Name="LViewSend" 
+                              Height="535" 
+                              Background="Transparent"  
+                              BorderThickness="0,0,0,0">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition  Width="200"></ColumnDefinition>
-                                        <ColumnDefinition Width="200"></ColumnDefinition>
-                                        <ColumnDefinition Width="200"></ColumnDefinition>
-                                    </Grid.ColumnDefinitions>
-
-                                    <TextBlock Grid.Column="0" TextWrapping="Wrap"
-                                    FontFamily="Segoe UI Historic" 
-                                       Text="{Binding originalText}" HorizontalAlignment="Left"></TextBlock>
-                                    <TextBlock Grid.Column="1" 
-                                           Text="{Binding task}"></TextBlock>
-                                    <TextBlock Grid.Column="2" 
-                                           Text="{Binding translatorName}"></TextBlock>
-
-                                </Grid>
+                                <Border BorderBrush="#e8c27b" BorderThickness="1" CornerRadius="8, 8, 3, 3">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition  Width="400"></ColumnDefinition>
+                                            <ColumnDefinition Width="250"></ColumnDefinition>
+                                            <ColumnDefinition Width="250"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBox
+                                            Grid.Column="0"
+                                            IsReadOnly="True"  
+                                            Background="Transparent" 
+                                            BorderThickness="0,0,0,0" 
+                                            BorderBrush="#e8c27b"
+                                            TextWrapping="Wrap"
+                                            Text="{Binding OriginalText}" 
+                                            HorizontalAlignment="Left"></TextBox>
+                                        <TextBox
+                                            Grid.Column="1"
+                                            IsReadOnly="True"  
+                                            Background="Transparent" 
+                                            BorderThickness="1,0,0,0" 
+                                            BorderBrush="#e8c27b"
+                                           Text="{Binding Task}"></TextBox>
+                                        <TextBox
+                                            IsReadOnly="True"  
+                                            Background="Transparent" 
+                                            BorderThickness="1,0,0,0" 
+                                            BorderBrush="#e8c27b"
+                                            Grid.Column="2" 
+                                           Text="{Binding TranslatorName}"></TextBox>
+                                    </Grid>
+                                </Border>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
                 </StackPanel>
             </Grid>
-            <Grid Name="GridResult" Visibility="Collapsed">
+            <Grid Name="GridResult" 
+                  Visibility="Collapsed" 
+                  Margin="0,10,0,0">
                 <StackPanel>
-                    <Grid>
+                    <Grid Margin="8,0,0,0">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition  Width="150"></ColumnDefinition>
+                            <ColumnDefinition  Width="300"></ColumnDefinition>
+                            <ColumnDefinition Width="200"></ColumnDefinition>
                             <ColumnDefinition Width="150"></ColumnDefinition>
-                            <ColumnDefinition Width="150"></ColumnDefinition>
-                            <ColumnDefinition Width="150"></ColumnDefinition>
+                            <ColumnDefinition Width="250"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0"  TextAlignment="Center" TextWrapping="Wrap" Text="Текст для перевода"></TextBlock>
-                        <TextBlock Grid.Column="1"  TextAlignment="Center" Text="Задание"></TextBlock>
-                        <TextBlock Grid.Column="2" TextAlignment="Center" Text="Переводчик"></TextBlock>
-                        <TextBlock Grid.Column="3" TextAlignment="Center" Text="Результат"></TextBlock>
+                        <TextBox 
+                                   Grid.Column="0"  
+                                   TextAlignment="Center" 
+                                   TextWrapping="Wrap" 
+                                   Text="Текст для перевода"
+                                   Background="#28666e" 
+                                   Foreground="white" 
+                                   IsReadOnly="True"
+                                   BorderThickness="1,1,1,1" 
+                                   BorderBrush="white"></TextBox>
+                        <TextBox Grid.Column="1"                                     
+                                   TextAlignment="Center" 
+                                   TextWrapping="Wrap" 
+                                   Text="Задание"
+                                   Background="#28666e" 
+                                   Foreground="white" 
+                                   IsReadOnly="True"
+                                   BorderThickness="1,1,1,1" 
+                                   BorderBrush="white"></TextBox>
+                        <TextBox Grid.Column="2"                                    
+                                   TextAlignment="Center" 
+                                   TextWrapping="Wrap" 
+                                   Text="Переводчик"
+                                   Background="#28666e" 
+                                   Foreground="white" 
+                                   IsReadOnly="True"
+                                   BorderThickness="1,1,1,1" 
+                                   BorderBrush="white"></TextBox>
+                        <TextBox Grid.Column="3"                                    
+                                   TextAlignment="Center" 
+                                   TextWrapping="Wrap" 
+                                   Text="Результат"
+                                   Background="#28666e" 
+                                   Foreground="white" 
+                                   IsReadOnly="True"
+                                   BorderThickness="1,1,1,1" 
+                                   BorderBrush="white"></TextBox>
 
                     </Grid>
-                    <ListView Name="LViewResult">
+                    <ListView Name="LViewResult"
+                              Height="535" 
+                              Background="Transparent"  
+                              BorderThickness="0,0,0,0">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition  Width="150"></ColumnDefinition>
-                                        <ColumnDefinition Width="150"></ColumnDefinition>
-                                        <ColumnDefinition Width="150"></ColumnDefinition>
-                                        <ColumnDefinition Width="150"></ColumnDefinition>
-                                    </Grid.ColumnDefinitions>
+                                <Border BorderBrush="#e8c27b" BorderThickness="1" CornerRadius="8, 8, 3, 3">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition  Width="300"></ColumnDefinition>
+                                            <ColumnDefinition Width="200"></ColumnDefinition>
+                                            <ColumnDefinition Width="150"></ColumnDefinition>
+                                            <ColumnDefinition Width="250"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
 
-                                    <TextBlock Grid.Column="0" TextWrapping="Wrap"
-                                    FontFamily="Segoe UI Historic" 
-                                       Text="{Binding originalText}" HorizontalAlignment="Left"></TextBlock>
-                                    <TextBlock Grid.Column="1" 
-                                           Text="{Binding task}"></TextBlock>
-                                    <TextBlock Grid.Column="2" 
-                                           Text="{Binding translatorName}"></TextBlock>
-                                    <TextBlock Grid.Column="3"  TextWrapping="Wrap"
-                                           Text="{Binding result}"></TextBlock>
-
-                                </Grid>
+                                        <TextBox
+                                            Grid.Column="0"
+                                            IsReadOnly="True"  
+                                            Background="Transparent" 
+                                            BorderThickness="0,0,0,0" 
+                                            BorderBrush="#e8c27b"
+                                            TextWrapping="Wrap"
+                                            Text="{Binding OriginalText}" 
+                                            HorizontalAlignment="Left"></TextBox>
+                                        <TextBox
+                                            Grid.Column="1"
+                                            IsReadOnly="True"  
+                                            Background="Transparent" 
+                                            BorderThickness="1,0,0,0" 
+                                            BorderBrush="#e8c27b"
+                                           Text="{Binding Task}"></TextBox>
+                                        <TextBox
+                                            IsReadOnly="True"  
+                                            Background="Transparent" 
+                                            BorderThickness="1,0,0,0" 
+                                            BorderBrush="#e8c27b"
+                                            Grid.Column="2" 
+                                           Text="{Binding TranslatorName}"></TextBox>
+                                        <TextBox
+                                            IsReadOnly="True"  
+                                            Background="Transparent" 
+                                            BorderThickness="1,0,0,0" 
+                                            BorderBrush="#e8c27b"
+                                            Grid.Column="3" 
+                                           Text="{Binding Result}"></TextBox>
+                                    </Grid>
+                                </Border>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>

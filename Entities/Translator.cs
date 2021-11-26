@@ -20,15 +20,14 @@ namespace EgyptianDictionary.Entities
             this.Translation = new HashSet<Translation>();
         }
     
-        public short id { get; set; }
-        public string login { get; set; }
-        public string name { get; set; }
-        public string gender { get; set; }
-        public string education { get; set; }
-        public string experience { get; set; }
-        public string avatar { get; set; }
+        public byte Id { get; set; }
+        public string Login { get; set; }
+        public string Name { get; set; }
+        public string Gender { get; set; }
+        public string Education { get; set; }
+        public string Experience { get; set; }
+        public string Avatar { get; set; }
     
-        public virtual Gender Gender1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Translation> Translation { get; set; }
         public virtual User User { get; set; }

@@ -26,9 +26,9 @@ namespace EgyptianDictionary
         {
             InitializeComponent();
             _currentTranslation = currentTranslation;
-            LClient.Content = "Перевод для " + _currentTranslation.clientName;
-            TBOriginal.Text = _currentTranslation.originalText;
-            TBTask.Text = _currentTranslation.task;
+            LClient.Content = "Перевод для " + _currentTranslation.ClientName;
+            TBOriginal.Text = _currentTranslation.OriginalText;
+            TBTask.Text = _currentTranslation.Task;
         }
 
         private void BSend_Click(object sender, RoutedEventArgs e)
@@ -38,9 +38,17 @@ namespace EgyptianDictionary
                 MessageBox.Show("Введдите данные!");
                 return;
             }
-            _currentTranslation.result = TBResult.Text;
+            _currentTranslation.Result = TBResult.Text;
             App.Context.SaveChanges();
             MessageBox.Show("Перевод отправлен!");
+            this.Close();
+        }
+        private void BMinimize_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.MainWindow.WindowState = WindowState.Minimized;
+        }
+        private void BClose_Click(object sender, RoutedEventArgs e)
+        {
             this.Close();
         }
     }

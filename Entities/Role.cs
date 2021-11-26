@@ -20,8 +20,8 @@ namespace EgyptianDictionary.Entities
             this.User = new HashSet<User>();
         }
     
-        public int id { get; set; }
-        public string name { get; set; }
+        public byte Id { get; set; }
+        public string Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<User> User { get; set; }

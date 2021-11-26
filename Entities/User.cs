@@ -21,9 +21,9 @@ namespace EgyptianDictionary.Entities
             this.Translator = new HashSet<Translator>();
         }
     
-        public string login { get; set; }
-        public string password { get; set; }
-        public int roleId { get; set; }
+        public string Login { get; set; }
+        public string Password { get; set; }
+        public byte RoleId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Client> Client { get; set; }
