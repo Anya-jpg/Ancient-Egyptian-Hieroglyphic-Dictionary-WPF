@@ -35,7 +35,7 @@ namespace EgyptianDictionary
         {
             if (TBResult.Text == "")
             {
-                MessageBox.Show("Введдите данные!");
+                MessageBox.Show("Введите перевод текста!");
                 return;
             }
             _currentTranslation.Result = TBResult.Text;

@@ -141,7 +141,7 @@
                         Grid.Column="1" 
                         Grid.Row="6">Удалить аккаунт</Button>
             </Grid>
-            <Grid Height="50">
+            <Grid Height="50" Visibility="Visible">
                 <StackPanel Orientation="Horizontal" Margin="10 0">
                     <Button Uid="0" 
                             Content="Создать заявку на перевод" 
