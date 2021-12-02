@@ -21,3 +21,6 @@ namespace EgyptianDictionary
         public static Entities.User CurrentUser = null;
     }
 }
+
+
+

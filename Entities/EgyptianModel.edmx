@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище EgyptianDBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище EgyptianDBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Categoria">
           <Key>
             <PropertyRef Name="Categoria" />
@@ -52,6 +52,19 @@
           <Property Name="Type" Type="nvarchar" MaxLength="255" />
           <Property Name="Description" Type="nvarchar(max)" />
           <Property Name="View" Type="nvarchar(max)" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "EgyptianDB.dbo.Pharaoh" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="Pharaoh">
+          <Key>
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="BirthName" Type="nvarchar" MaxLength="255" />
+          <Property Name="BirthDescription" Type="nvarchar" MaxLength="255" />
+          <Property Name="ThroneName" Type="nvarchar" MaxLength="255" />
+          <Property Name="ThroneDescription" Type="nvarchar" MaxLength="255" />
+          <Property Name="Dynasty" Type="nvarchar" MaxLength="255" />
         </EntityType>
         <!--Ошибки, обнаруженные при создании:
 предупреждение 6002: В таблице или представлении "EgyptianDB.dbo.Phonogram" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
@@ -255,6 +268,16 @@
     [God].[View] AS [View]
     FROM [dbo].[God] AS [God]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="Pharaoh" EntityType="Self.Pharaoh" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Pharaoh].[Name] AS [Name], 
+    [Pharaoh].[BirthName] AS [BirthName], 
+    [Pharaoh].[BirthDescription] AS [BirthDescription], 
+    [Pharaoh].[ThroneName] AS [ThroneName], 
+    [Pharaoh].[ThroneDescription] AS [ThroneDescription], 
+    [Pharaoh].[Dynasty] AS [Dynasty]
+    FROM [dbo].[Pharaoh] AS [Pharaoh]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="Phonogram" EntityType="Self.Phonogram" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [Phonogram].[Glyph] AS [Glyph], 
@@ -289,8 +312,7 @@
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="EgyptianDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -553,6 +575,7 @@
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
+          <EntitySet Name="Pharaoh" EntityType="EgyptianDBModel.Pharaoh" />
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -565,6 +588,17 @@
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
+        <EntityType Name="Pharaoh">
+          <Key>
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="BirthName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="BirthDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ThroneName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ThroneDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Dynasty" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -706,6 +740,18 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище EgyptianDBModel.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище EgyptianDBModel.sp_upgraddiagrams" />
+          <EntitySetMapping Name="Pharaoh">
+            <EntityTypeMapping TypeName="EgyptianDBModel.Pharaoh">
+              <MappingFragment StoreEntitySet="Pharaoh">
+                <ScalarProperty Name="Dynasty" ColumnName="Dynasty" />
+                <ScalarProperty Name="ThroneDescription" ColumnName="ThroneDescription" />
+                <ScalarProperty Name="ThroneName" ColumnName="ThroneName" />
+                <ScalarProperty Name="BirthDescription" ColumnName="BirthDescription" />
+                <ScalarProperty Name="BirthName" ColumnName="BirthName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

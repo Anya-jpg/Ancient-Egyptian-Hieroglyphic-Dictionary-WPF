@@ -103,6 +103,9 @@
     <Compile Include="Entities\God.cs">
       <DependentUpon>EgyptianModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Pharaoh.cs">
+      <DependentUpon>EgyptianModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Phonogram.cs">
       <DependentUpon>EgyptianModel.tt</DependentUpon>
     </Compile>

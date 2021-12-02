@@ -9,7 +9,6 @@
       Title="DictionaryPage"
       FontFamily="Segoe UI Historic"
       >
-    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="74"></ColumnDefinition>
@@ -32,11 +31,11 @@
                 <Label FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Grid.ColumnSpan="3" Grid.Row="0">Словарь египетских иероглифов по Гардинеру</Label>
                 <Label 
                     Grid.Row="1">Введите иероглиф на Юникоде:</Label>
-                        <Label 
+                <Label 
                             Grid.Row="2">Введите код или его часть по Гардинеру:</Label>
-                        <Label 
+                <Label 
                             Grid.Row="3">Введите транслитерацию или ее часть:</Label>
-                        <Label 
+                <Label 
                             Grid.Row="4">Введите ключевые слова для поиска в описании и в заметках:</Label>
                 <TextBox Margin="2" Name="TBSearchUnicode"
                    Grid.Row="1" Grid.Column="1" ></TextBox>
@@ -113,14 +112,13 @@
                               BorderThickness="0,1,1,1" BorderBrush="white"></TextBox>
                 <TextBox Grid.Column="6"  TextAlignment="Center" Text="Заметки" Background="#28666e" Foreground="white" IsReadOnly="True"
                               BorderThickness="0,1,1,1" BorderBrush="white"></TextBox>
-
             </Grid>
             <ListView Name="LViewDictionary" ScrollViewer.VerticalScrollBarVisibility="Visible" Height="550" Background="Transparent"  BorderThickness="0,0,0,0">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Border BorderBrush="#e8c27b" BorderThickness="1" CornerRadius="8, 8, 3, 3">
                             <Grid Background="#fff2b2">
-                            <Grid.ColumnDefinitions>
+                                <Grid.ColumnDefinitions>
                                     <ColumnDefinition  Width="62"></ColumnDefinition>
                                     <ColumnDefinition Width="75"></ColumnDefinition>
                                     <ColumnDefinition Width="90"></ColumnDefinition>
@@ -143,9 +141,8 @@
                                 <TextBox Grid.Column="5"  TextAlignment="Center" TextWrapping="Wrap" IsReadOnly="True" Background="Transparent" BorderThickness="1,0,0,0" BorderBrush="#e8c27b"
                                            Text="{Binding Transliteration}" Name="TBTransliteration" AcceptsReturn="True"></TextBox>
                                 <TextBox Grid.Column="6" TextWrapping="Wrap" TextAlignment="Center" IsReadOnly="True" Background="Transparent" BorderThickness="1,0,0,0" BorderBrush="#e8c27b"
-                                           Text="{Binding Notes}" Name="TBNotes" AcceptsReturn="True"></TextBox> 
-
-                        </Grid>
+                                           Text="{Binding Notes}" Name="TBNotes" AcceptsReturn="True"></TextBox>
+                            </Grid>
                         </Border>
                     </DataTemplate>
                 </ListView.ItemTemplate>

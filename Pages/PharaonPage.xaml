@@ -5,10 +5,172 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:EgyptianDictionary.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="PharaonPage">
-
+      d:DesignHeight="800" d:DesignWidth="926"
+      Title="PharaonPage"
+       FontFamily="Segoe UI Historic">
     <Grid>
-        <Button Content="Фараоны"></Button>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="74"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="1">
+            <Grid Height="100">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition  ></RowDefinition>
+                    <RowDefinition ></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Grid.ColumnSpan="3" Grid.Row="0">Древнеегипетские фараоны</Label>
+                <Label 
+                    Grid.Row="1">Введите имя фараона:</Label>
+                <Label 
+                    Grid.Row="2">Введите ключевые слова для поиска в описании:</Label>
+                <TextBox 
+                    Margin="2" 
+                    Name="TBSearchName"
+                    Grid.Row="1" 
+                    Grid.Column="1"></TextBox>
+                <TextBox  
+                    Margin="2" 
+                    Name="TBSearchWords"
+                    Grid.Row="2" 
+                    Grid.Column="1" ></TextBox>
+                <Button 
+                    Margin="10,2,10,2"
+                    Name="BSearh" 
+                    Background="#28666e" 
+                    BorderBrush="white" 
+                    Foreground="white" 
+                    FontSize="14" 
+                    FontWeight="Bold"
+                    Grid.Row="1" 
+                    Grid.Column="2" 
+                    Click="BSearh_Click">Поиск</Button>
+                <Button 
+                    Margin="10,2,10,2"
+                    Name="BEdit" 
+                    Background="#28666e" 
+                    BorderBrush="white"     
+                    Foreground="white" 
+                    FontSize="14" 
+                    FontWeight="Bold"
+                    Grid.Row="2" 
+                    Grid.Column="2" 
+                    Click="BEdit_Click">Режим редактирования</Button>
+                <Button 
+                    Margin="10,2,10,2"
+                    Name="BSave" 
+                    Background="white" 
+                    BorderBrush="#28666e"  
+                    Foreground="#28666e" 
+                    FontSize="14" 
+                    FontWeight="Bold" 
+                    Visibility="Collapsed"
+                    Grid.Row="2" 
+                    Grid.Column="2" 
+                    Click="BSave_Click">Сохранить</Button>
+            </Grid>
+            <Grid Height="20" Margin="8,5,0,0" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition  Width="100"></ColumnDefinition>
+                    <ColumnDefinition Width="150"></ColumnDefinition>
+                    <ColumnDefinition Width="190"></ColumnDefinition>
+                    <ColumnDefinition Width="150"></ColumnDefinition>
+                    <ColumnDefinition  Width="190"></ColumnDefinition>
+                    <ColumnDefinition Width="100"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBox 
+                    Grid.Column="0" 
+                    TextAlignment="Center" 
+                    Text="Имя" 
+                    Background="#28666e" 
+                    Foreground="white" 
+                    IsReadOnly="True"
+                    BorderThickness="1,1,1,1" 
+                    BorderBrush="white"></TextBox>
+                <TextBox 
+                    Grid.Column="1"  
+                    TextAlignment="Center" 
+                    Text="Имя при рождении" 
+                    Background="#28666e" 
+                    Foreground="white" 
+                    IsReadOnly="True"
+                    BorderThickness="0,1,1,1" 
+                    BorderBrush="white"></TextBox>
+                <TextBox 
+                    Grid.Column="2"  
+                    TextAlignment="Center" 
+                    Text="Описание" 
+                    Background="#28666e" 
+                    Foreground="white" 
+                    IsReadOnly="True"
+                    BorderThickness="0,1,1,1" 
+                    BorderBrush="white"></TextBox>
+                <TextBox 
+                    Grid.Column="3" 
+                    TextAlignment="Center" 
+                    Text="Тронное имя" 
+                    Background="#28666e" 
+                    Foreground="white" 
+                    IsReadOnly="True"    
+                    BorderThickness="0,1,1,1" BorderBrush="white"></TextBox>
+                <TextBox 
+                    Grid.Column="4" 
+                    TextAlignment="Center" 
+                    Text="Описание" 
+                    Background="#28666e" 
+                    Foreground="white" 
+                    IsReadOnly="True"
+                    BorderThickness="0,1,1,1" 
+                    BorderBrush="white"></TextBox>
+                <TextBox 
+                    Grid.Column="5" 
+                    TextAlignment="Center" 
+                    Text="Династия" 
+                    Background="#28666e" 
+                    Foreground="white" 
+                    IsReadOnly="True"          
+                    BorderThickness="0,1,1,1" 
+                    BorderBrush="white"></TextBox>
+
+            </Grid>
+            <ListView Name="LViewPharaohs" ScrollViewer.VerticalScrollBarVisibility="Visible" Height="575"  Background="Transparent"  BorderThickness="0,0,0,0">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="#e8c27b" BorderThickness="1" CornerRadius="8, 8, 3, 3">
+                            <Grid Background="#fff2b2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition  Width="100"></ColumnDefinition>
+                                    <ColumnDefinition Width="150"></ColumnDefinition>
+                                    <ColumnDefinition Width="190"></ColumnDefinition>
+                                    <ColumnDefinition Width="150"></ColumnDefinition>
+                                    <ColumnDefinition  Width="190"></ColumnDefinition>
+                                    <ColumnDefinition Width="100"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <TextBox Grid.Column="0" TextAlignment="Center" TextWrapping="Wrap" IsReadOnly="True"  Background="Transparent" BorderThickness="0,0,0,0" BorderBrush="#e8c27b" 
+                                           Text="{Binding Name}"></TextBox>
+                                <TextBox Grid.Column="1" TextAlignment="Center" TextWrapping="Wrap" IsReadOnly="True"  Background="Transparent" BorderThickness="1,0,0,0" BorderBrush="#e8c27b" 
+                                           Text="{Binding BirthName}"></TextBox>
+                                <TextBox Grid.Column="2" TextAlignment="Center" TextWrapping="Wrap" IsReadOnly="True"  Background="Transparent" BorderThickness="1,0,0,0" BorderBrush="#e8c27b" 
+                                       Text="{Binding BirthDescription}" HorizontalAlignment="Left"></TextBox>
+                                <TextBox Grid.Column="3" TextAlignment="Center" TextWrapping="Wrap" IsReadOnly="True"  Background="Transparent" BorderThickness="1,0,0,0" BorderBrush="#e8c27b" 
+                                           Text="{Binding ThroneName}"></TextBox>
+                                <TextBox Grid.Column="4" TextAlignment="Center" TextWrapping="Wrap" IsReadOnly="True"  Background="Transparent" BorderThickness="1,0,0,0" BorderBrush="#e8c27b" 
+                                           Text="{Binding ThroneDescription}"></TextBox>
+                                <TextBox Grid.Column="5" TextAlignment="Center" TextWrapping="Wrap" IsReadOnly="True"  Background="Transparent" BorderThickness="1,0,0,0" BorderBrush="#e8c27b" 
+                                           Text="{Binding Dynasty}"></TextBox>
+
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+
     </Grid>
 </Page>

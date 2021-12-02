@@ -21,6 +21,7 @@
         <AssociationConnector Association="EgyptianDBModel.FK_User_Role" ManuallyRouted="false" />
         <AssociationConnector Association="EgyptianDBModel.FK_Task_Translator" ManuallyRouted="false" />
         <AssociationConnector Association="EgyptianDBModel.FK_Translator_User" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="EgyptianDBModel.Pharaoh" Width="1.5" PointX="10.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

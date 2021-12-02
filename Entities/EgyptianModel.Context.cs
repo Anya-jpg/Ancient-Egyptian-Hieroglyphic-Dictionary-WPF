@@ -37,6 +37,7 @@ namespace EgyptianDictionary.Entities
         public virtual DbSet<Dictionary> Dictionary { get; set; }
         public virtual DbSet<God> God { get; set; }
         public virtual DbSet<Phonogram> Phonogram { get; set; }
+        public virtual DbSet<Pharaoh> Pharaoh { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
