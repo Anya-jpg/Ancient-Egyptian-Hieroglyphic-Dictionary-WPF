@@ -2,6 +2,9 @@
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Collections.Generic;
+using System.Data.Entity;
+using ApplicationContext = EgyptianDictionary.Entities.ApplicationContext;
 
 namespace EgyptianDictionary
 {
@@ -10,9 +13,13 @@ namespace EgyptianDictionary
     /// </summary>
     public partial class RegistrationWindow : Window
     {
+        ApplicationContext db;
         public RegistrationWindow()
         {
             InitializeComponent();
+            db = new ApplicationContext();
+            db.Users.Load();
+            this.DataContext = db.Users.Local.ToBindingList();
         }
 
         private void BRegistration_Click(object sender, RoutedEventArgs e)
@@ -22,7 +29,7 @@ namespace EgyptianDictionary
                 MessageBox.Show("Не все данные заполнены!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            if (App.Context.User.Select(Item => Item.Login).Contains(TBLogin.Text))
+            if (db.Users.Select(Item => Item.Login).Contains(TBLogin.Text))
             {
                 MessageBox.Show("Такой логин уже существует в системе!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
@@ -41,7 +48,7 @@ namespace EgyptianDictionary
                 Password = TBPassword.Password,
                 RoleId = role,
             };
-            App.Context.User.Add(newUser);
+            db.Users.Add(newUser);
             if (CBRole.SelectedItem == CBUser)
             {
                 Client newClient = new Client()
@@ -51,7 +58,7 @@ namespace EgyptianDictionary
                     Gender = g,
                     Avatar = photo,
                 };
-                App.Context.Client.Add(newClient);
+                db.Clients.Add(newClient);
             }
             if (CBRole.SelectedItem == CBTranslator)
             {

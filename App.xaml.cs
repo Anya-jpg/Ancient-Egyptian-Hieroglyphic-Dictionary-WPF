@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using EgyptianDictionary.Entities;
+using System.Data.Entity;
+using System.Windows;
 
 namespace EgyptianDictionary
 {
@@ -7,11 +9,7 @@ namespace EgyptianDictionary
     /// </summary>
     public partial class App : Application
     {
-        public static Entities.EgyptianDBEntities Context
-        {
-            get;
-        }
-        = new Entities.EgyptianDBEntities();
+
         public static Entities.User CurrentUser = null;
     }
 }
